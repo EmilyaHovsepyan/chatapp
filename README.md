@@ -1,6 +1,5 @@
 # ChatApp 🚀
 
-![42 Project](https://img.shields.io/badge/42%20School-Project-blue) 
 ![Backend](https://img.shields.io/badge/backend-Django-informational)
 ![Frontend](https://img.shields.io/badge/frontend-HTML%2FCSS%2FJS-important)
 ![Protocols](https://img.shields.io/badge/protocols-WebSocket%2FHTTP-success)

@@ -1,0 +1,167 @@
+/* body {
+    overflow: hidden;
+    padding: 0;
+} */
+
+
+#container {
+    display: flex;
+    height: 100vh;
+}
+
+#leftside {
+    width: 200px;
+    background-color: grey;
+    overflow-y: auto;
+    border-right: 1px solid #000000;
+    display: flex;
+    flex-direction: column;
+}
+#topleftside {
+    padding: 10px;
+    width: 100%;
+    background-color: darkgrey;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+#usernamehold {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#profilepic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.leftdivs {
+    width: 100%; /* leftsidei amboxj erkarutyamb*/
+    height: 72px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #2a2a2a;
+    cursor: pointer;
+    border-bottom: 1px solid #333;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+.leftdivs:hover {
+    background-color: #3d3d3d;
+}
+#chatbox {
+    height: 500px;
+    width: 200px;
+    background-color: rgb(48, 88, 182);
+}
+
+#darkendiv {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 2, 0, 0.472);
+    display: none;
+    z-index: 100;
+}
+
+#centerdiv {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(84, 99, 142);
+    z-index: 101;
+    width: 300px;
+    height: 600px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#doubledarkendiv {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 102;
+    background-color: rgba(0, 2, 0, 0.472);
+    width: 300px;
+    height: 600px;
+    border-radius: 10px;
+    display: none;
+}
+
+#smalldivpic {
+    position: fixed;
+    display: none;
+    z-index: 104;
+    width: 150px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+#profilepichangeopen {
+    background-color: rgb(178, 195, 209);
+    display: flex;
+    position: fixed;
+    z-index: 103;
+    top: 100px;
+    width: 100px;
+    height: 50px;
+}
+
+#smalldivusername {
+    position: fixed;
+    display: none;
+    z-index: 104;
+    width: 150px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+#usernamechangeopen {
+    background-color: rgb(178, 195, 209);
+    display: flex;
+    position: fixed;
+    z-index: 103;
+    width: 100px;
+    top: 160px;
+    height: 50px;
+}
+
+#smalldivbio {
+    position: fixed;
+    display: none;
+    z-index: 104;
+    width: 150px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+#biochangeopen {
+    background-color: rgb(178, 195, 209);
+    display: flex;
+    position: fixed;
+    z-index: 103;
+    width: 100px;
+    top: 220px;
+    height: 50px;
+}

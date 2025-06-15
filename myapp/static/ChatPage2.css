@@ -1,0 +1,352 @@
+
+/* Общий контейнер одного сообщения */
+.messagebox {
+  display: flex;
+  flex-direction: column;
+  max-width: 60%;
+  margin-bottom: 5px;
+  position: absolute;
+
+}
+/* Сообщение пользователя — справа */
+.messagebox.right {
+  align-self: flex-end;
+  margin-left: auto;
+  margin-right: 10px;
+  position: relative; /* This is needed for absolute positioning of children */
+  padding-right: 34px; /* Make space for the image (24px width + 10px margin) */
+}
+
+/* Сообщение другого человека — слева */
+.messagebox.left {
+  align-self: flex-start;
+  margin-right: auto;
+  margin-left: 10px;
+  position: relative; /* This is needed for absolute positioning of children */
+  padding-left: 34px;
+}
+
+/* Стиль пузыря для твоих сообщений */
+.rightbubble {
+  background-color: #DCF8C6; /* WhatsApp-style green */
+  color: black;
+  padding: 10px 15px;
+  border-radius: 16px;
+  max-width: 60%; /* Ограничивает максимальную ширину */
+  width: fit-content; /* Заставляет подстраиваться под содержимое */
+  word-wrap: break-word; /* Перенос слов, если слишком длинные */
+  margin-left: auto; /* Сдвигает вправо */
+  margin-top: 4px;
+}
+/* Стиль пузыря для чужих сообщений */
+.leftbubble {
+  background-color: #1e69aa; /* WhatsApp-style green */
+  color: black;
+  padding: 10px 15px;
+  border-radius: 16px;
+  max-width: 60%; /* Ограничивает максимальную ширину */
+  width: fit-content; /* Заставляет подстраиваться под содержимое */
+  word-wrap: break-word; /* Перенос слов, если слишком длинные */
+  margin-right: auto; /* Сдвигает вправо */
+  margin-top: 4px;
+}
+
+.usernamebox {
+  font-size: 12px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+}
+#rightside {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #d2d68d;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+#bottomwrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* min-height: 60px; */
+  z-index: 9999;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  bottom: 0;
+  background-color: #f1f1f1; /* Optional: match your design */
+}
+
+.chatdiv {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-bottom: 80px; /* Adjust as needed */
+  position: relative;
+  width: 100%;
+}
+
+
+#divcreatenewgroup {
+display: none;
+flex-direction: column;
+justify-content: flex-start;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: rgb(99, 200, 187);
+z-index: 101;
+width: 300px;
+height: 600px;
+text-align: center;
+border-radius: 10px;
+overflow: hidden;
+}
+
+.searchusers{
+width: 300px;
+height: 90px;
+background-color: palevioletred;
+}
+
+.searchighlight {
+background-color: rgb(154, 75, 101)
+}
+
+#divsearched {
+flex: 1;
+overflow-y: auto;
+}
+
+
+#creategrptop {
+width: 100%;
+background-color: crimson;
+z-index: 10;
+}
+
+.topusername {
+height: 30px;
+display: inline-block;
+padding: 0 10px;
+background-color: palegreen;
+white-space: nowrap;
+}
+
+#creategrpbuttom {
+position: absolute;
+bottom: 0;
+height: 50px;
+width: 100%;
+z-index: 10; 
+}
+
+#creategrpbutton {
+height: 100%;
+width: 100%;
+}
+
+#usersearch {
+background-color: transparent;
+border: none;
+outline: none;
+font-size: 16px;
+padding: 5px;
+color: white;
+}
+
+#darkdivcreate {
+position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 2, 0, 0.472);
+  display: none;
+  z-index: 100;
+}
+
+.profilikright {
+  border-radius: 50px;
+  width: 24px;
+  height: 24px;
+  position: absolute; /* Keep absolute positioning */
+  top: 10px; /* Position at the top of the relative container */
+  right: -10px; 
+  /* Remove transform: translateY(-50%) as it was centering vertically */
+}
+.profilikright img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profilikleft img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profilikleft {
+  border-radius: 50px;
+  width: 24px;
+  height: 24px;
+  position: absolute; /* Keep absolute positioning */
+  top: 10px; /* Position at the top of the relative container */
+  left: -10px; 
+}
+
+#rightbuttom {
+  width: 100%;
+  background-color: cadetblue;
+  box-sizing: border-box;
+}
+
+#rightbuttdiv {
+  position: relative;
+  width: 100%;
+  background-color: #f1f1f1;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+  min-height: 40px; /* padding + textarea min-height */
+}
+
+#rightinput {
+  flex: 1;
+  /* min-height: 20px; */
+  height: 20px; /* Set initial height explicitly */
+  max-height: 150px;
+  resize: none;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 5px;
+  box-sizing: border-box;
+  line-height: 1;
+  overflow-y: hidden; /* Start with hidden overflow */
+}
+#rightbutton {
+  background-color: chartreuse;
+  height: 30px;
+  margin-left: 10px;
+  flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.divchatprofile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(175, 99, 200);
+  z-index: 120;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.imgchatprofile {
+  border-radius: 50px;
+  width: 24px;
+  height: 24px;
+  top: 50%;
+  left: 50%;
+  position: absolute; /* Keep absolute positioning */
+  top: 10px; /* Position at the top of the relative container */
+  left: -10px;
+}
+#divtyping {
+  width: auto;
+  height: 20ps;
+  background-color: rgb(173, 194, 195);
+  box-sizing: border-box;
+}
+
+.divik {
+  background-color: rgb(147, 72, 213);
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+  z-index: 101;
+  border-radius: 50%;
+}
+.divik img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.textdivik {
+  /* background-color: rgb(213, 72, 126); */
+  width: 50px;
+  height: 20px;
+  z-index: 130;
+  border-radius: 4px;
+}
+.smsdivik {
+  /* background-color: rgb(255, 255, 255); */
+  height: 20px;
+  z-index: 130;
+  border-radius: 4px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.textsmsdivik {
+  display: inline-block;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+#topwrapper {
+  height: 60px;  /* Fixed height or dynamic, depending on content */
+  background-color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: white;
+  margin: 0;
+  cursor: pointer;
+}
+
+#topwrap {
+  margin-left: 15px;
+  
+  /* background-color: #DCF8C6; */
+}
+
+#toptop {
+  /* background-color: rgb(213, 72, 126); */
+  width: 50px;
+  height: 20px;
+  z-index: 130;
+  border-radius: 4px;
+  color: black;
+}
+
+#topbuttom {
+  /* background-color: rgb(161, 27, 27);  */
+  color: black;
+  height: 20px;
+  z-index: 130;
+  border-radius: 4px;
+  display: inline-block;
+  white-space: nowrap;
+}

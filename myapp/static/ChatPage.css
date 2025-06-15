@@ -1,0 +1,523 @@
+body {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+
+#container {
+    display: flex;
+    height: 100vh;
+    /* width: 100vh; */
+}
+
+#leftside {
+    /* width: 300px;
+    background-color: grey;
+    overflow-y: auto;
+    display: flex;
+    margin: 0;
+    height: 100%;*/
+    overflow: hidden;
+    flex-direction: column;
+    width: 200px; /* стандартная ширина */
+    height: 100vh;
+    background-color: #f1f1f1;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+#resizer {
+    width: 5px;
+    z-index: 100;
+    background: #ccc;
+    cursor: ew-resize;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#topleftside {
+    /* padding: 10px; */
+    width: 100%;
+    height: 60px;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+#usernamehold {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#profilepic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.leftdivs {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* padding: 10px 15px; */
+    transition: background-color 0.2s ease;
+    margin: 2px 0px;
+    width: 100%;
+    height: 60px;
+    box-sizing: border-box;
+}
+
+/* Default state */
+.leftdivs {
+    background-color: var(--chat-bg, #f1f1f1);
+}
+
+/* Hover state */
+.leftdivs:hover {
+    background-color: var(--chat-hover, #e8e8e8);
+}
+
+/* Active/selected state */
+.leftdivs.active {
+    background-color: var(--chat-active, #6486a9);
+}
+
+/* Straight wave effect */
+.leftdivs::before,
+.leftdivs::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background-color: rgba(255, 255, 255, 0.4); /* Light wave */
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.leftdivs::before {
+    left: 50%;
+    animation: wave-left 0.5s ease-out;
+}
+
+.leftdivs::after {
+    left: 50%;
+    animation: wave-right 0.5s ease-out;
+}
+
+@keyframes wave-left {
+    0% {
+        width: 0;
+        left: 50%;
+        opacity: 1;
+    }
+    100% {
+        width: 50%;
+        left: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes wave-right {
+    0% {
+        width: 0;
+        left: 50%;
+        opacity: 1;
+    }
+    100% {
+        width: 50%;
+        left: 50%;
+        opacity: 0;
+    }
+}
+
+#chatbox {
+    height: 500px;
+    width: 200px;
+    background-color: rgb(48, 88, 182);
+}
+
+#darkendiv {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 2, 0, 0.472);
+    display: none;
+    z-index: 100;
+}
+
+#centerdiv {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255,255,255);
+    z-index: 101;
+    width: 350px;
+    height: auto;
+    border-radius: 10px;
+    flex-direction: column;
+}
+
+#centerdivtop {
+    display: flex;
+    justify-content: space-between; /* This pushes children to opposite ends */
+    align-items: center; /* Vertically centers the items */
+    width: 100%;
+    height: 35px;
+    background-color: rgb(255,255,255);
+    border-radius: 10px;
+    margin: 0;
+    /* padding: 0 10px; This creates the 10px gap on both sides */
+}
+
+#centerdivtop p {
+    margin-left: 10px; /* убираем лишние отступы */
+    color: rgb(3, 0, 0);
+}
+
+#closecenterdiv {
+    border: none;
+    /* padding: 4px 8px; */
+    height: 19px;
+    width: 19px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.picnik {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+#centerdivbio0 {
+    display: flex;
+    justify-content: flex-start; /* This pushes children to opposite ends */
+    align-items: center; /* Vertically centers the items */
+    width: 100%;
+    height: 35px;
+    background-color: rgb(241,241,241);
+    /* padding: 0 10px; This creates the 10px gap on both sides */
+}
+
+#centerdivbio {
+    display: flex;
+    min-height: 40px;
+    width: 100%;
+    background-color: rgb(255,255,255);
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 5px 10px; */
+    box-sizing: border-box;
+    position: relative; /* Added for absolute positioning */
+    border-bottom: 2px solid rgb(227,227,227);
+}
+
+#centerdivbioinp {
+    width: 280px;
+    min-height: 100%;
+    max-height: 100px;
+    resize: none;
+    overflow-y: auto;
+    box-sizing: border-box;
+    border: none;
+    font-family: inherit;
+    font-size: 14px;
+    left: 0px;
+    margin-right: 10px; /* Space between textarea and red box */
+    align-self: center;
+    outline: none;
+    padding-left: 8px;
+}
+
+#centerdivbioinp {
+    resize: none;
+    overflow: hidden;
+}
+
+#centerdivbio01 {
+    position: absolute;
+    display: flex;
+    width: 30px;
+    height: 30px;
+    right: 10px;
+    top: 5px;
+    align-items: center;
+    justify-content: center;
+}
+#centerdivbio11 p {
+    color: rgb(153,153,153);
+}
+
+#centerdivbio1 {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(241,241,241);
+    display: flex;
+    justify-content: flex-start; /* This pushes children to opposite ends */
+    align-items: center; /* Vertically centers the items */
+    cursor: default;
+}
+
+.reddp {
+ 
+    color:rgb(216,77,77);
+}
+.blackdp {
+    color: rgb(153,153,153);
+}
+#centerdiv2 {
+    display: flex;
+    background-color: rgb(255,255,255);
+    width: 100%;
+    height: 120px;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#centerdiv211 {
+    width: 87px;
+    height: 90px;
+    display: flex;
+    position: relative;
+}
+
+#centerdiv21 {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+#centerdiv20 { /* en nkar uploadi icony */
+    width: 26px;
+    height: 26px;
+    background-color: rgb(125, 212, 252);
+    cursor: pointer;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid rgb(255, 255, 255);
+    bottom: 5px;
+    right: 1px;
+}
+
+#centerdiv21photo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#centerdiv22 {
+    width: auto;
+    height: 20px; /* Use min-height instead of fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 8px; /* Add some padding */
+}
+#centerdiv22 p {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis if text is too long */
+}
+
+.centik{
+    display: flex;
+    justify-content: space-between; /* This pushes children to opposite ends */
+    align-items: center; /* Vertically centers the items */
+    width: 100%;
+    height: 50px;
+    background-color: rgb(255,255,255);
+    cursor: pointer;
+}
+
+#centerdiv4 {
+    border-radius: 0 0 10px 10px;
+}
+.centik:hover {
+    background-color: rgb(241,241,241);
+}
+
+.centikp {
+    margin-left: 10px;
+    color: rgb(11, 1, 1);
+}
+
+
+#doubledarkendiv {
+z-index: 102;
+    position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 2, 0, 0.472);
+  display: none;
+}
+
+#smalldivpic {
+    position: fixed;
+    display: none;
+    z-index: 104;
+    width: 150px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+#profilepichangeopen {
+    background-color: rgb(178, 195, 209);
+    display: flex;
+    position: fixed;
+    z-index: 103;
+    top: 100px;
+    width: 100px;
+    height: 50px;
+}
+
+
+
+.smallik {
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    z-index: 103;
+    width: 300px;
+    height: 180px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+.smallik1 {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(34, 34, 219);
+    display: flex;
+    align-items: center;
+    border-radius: 10px 10px 0px 0px;
+}
+.smallik1 p {
+    margin-left: 10px;
+    color: white;
+    font-size: 22px;
+}
+
+.smallik5 {
+    display: flex;
+    height: 40px;
+    width: 100%;
+    background-color: white;
+    align-items: center;
+}
+
+.smallik5 p{
+    margin-left: 10px;
+    margin-bottom: 2px;
+    font-size: 16px;
+    color: rgb(153,153,153);
+}
+
+.smallik2 {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    /* border-t: 2px solid rgb(227,227,227); */
+}
+
+.smallik2 form {
+    width: 280px; /* Ensures form takes full width */
+}
+
+.smallik2 input {
+    width: 280px;
+    height: 32px;
+    box-sizing: border-box; /* Prevents padding/border from expanding width */
+    outline: none;
+    padding: 8px; /* Optional: Adjust as needed */
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 8px;
+}
+
+.smallik3 {
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    border-radius: 10px;
+    margin-bottom: 0px;
+}
+
+.smallikbutton {
+    color: white;
+    background-color: rgb(26, 26, 233);
+    border: none;
+    border-radius: 10px;
+    width: 70px;
+    height: 25px;
+    font-size: 15px;
+}
+
+
+
+
+
+
+#usernamechangeopen {
+    background-color: rgb(178, 195, 209);
+    display: flex;
+    position: fixed;
+    z-index: 103;
+    width: 100px;
+    top: 160px;
+    height: 50px;
+}
+
+#smalldivbio {
+    position: fixed;
+    display: none;
+    z-index: 104;
+    width: 150px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+#biochangeopen {
+    background-color: rgb(178, 195, 209);
+    display: flex;
+    position: fixed;
+    z-index: 103;
+    width: 100px;
+    top: 220px;
+    height: 50px;
+}

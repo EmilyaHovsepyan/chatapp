@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Register Page</title>
+            <link rel="stylesheet" href="{% static 'MainPage.css' %}">
+        
+        </head>
+        <body>
+            <div class="container">
+                <div id="welcomeText" class="welcome">Welcome to Emygram</div>
+                <form id="registerForm" class="form hidden">
+                    <p class="formfont">Register</p>
+                    <input type="text" placeholder="Username" required><br><br>
+                    <input type="password" placeholder="Password" required><br><br>
+                    <button type="submit">Register</button>
+                    <a href="{% url 'SignInPage' %}"><p>Sign in If you have acc</p></a>
+                </form>
+            </div>
+            <script>
+                setTimeout(() => {
+                    const form = document.getElementById('registerForm');
+                    form.classList.add('show');
+                }, 3500); // Starts fading in the form slightly before welcome finishes
+            </script>
+        </body>           
+    </html>

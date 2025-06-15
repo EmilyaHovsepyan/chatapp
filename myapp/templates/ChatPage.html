@@ -1,0 +1,2051 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="{% static 'ChatPage.css' %}">
+    <link rel="stylesheet" href="{% static 'ChatPage2.css' %}">
+    <link rel="stylesheet" href="{% static 'ChatPage3.css' %}">
+    <link rel="stylesheet" href="{% static 'ChatPage4.css' %}">
+    </head>
+
+    <body>
+        <div id="container">
+            <div id="leftside">
+                <div id="topleftside"> 
+                    <div id="usernamehold">
+                        <p id="usernamemain">{{userinfo.username}}</p>
+                        {% if userinfo.photo %}
+                            <img src="{{userinfo.photo.url}}" id="profilepic">
+                        {% endif %}
+                    </div>
+                    <button type="button" id="createnewgroup">Cre</button>
+                </div>
+                {% for i in groupinfo %}
+                    <div class="leftdivs" data-ids="{{i.groupid}}" data-background="{{i.bgname}}">
+                    </div>
+                {% endfor %}
+            </div>
+            <div id="rightside">
+                <div id="notifdiv">
+                    <div id="notifgroupname"></div>
+                    <div id="notiftext"></div>
+                </div>
+                <div id="topwrapper">
+                    <div id="topwrap">
+                        <div id="toptop"></div>
+                        <div id="topbuttom"></div>
+                    </div>
+                </div>
+                <div id="bottomwrapper">
+                    <div id="divtyping"></div>
+                    <div id="rightbuttom">
+                        <div id="rightbuttdiv">
+                            <textarea id="rightinput"></textarea>
+                            <button type="button" id="rightbutton">Kiki</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="groupdiv">
+            <div id="groupstatic"> 
+                <p id="groupstaticp">Group Info</p>
+                <div id="groupstaticcross">
+                    <img src="/media/icons/cross2.png" class="picnik">
+                </div>
+            </div>
+            <div id="groupscroll">
+                <div id="scrollgroupinfobar">
+                    <div id="scrollgroupimg"></div>
+                    <div id="scrollgroupwrap">
+                        <div id="groupscrollgroupname">
+                            <p id="groupscrollgroupnamep"></p>
+                        </div>
+                        <div id="groupscrollmembercount">
+                            <p id="groupscrollmembercountp"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div id="scrollchangename" class="scrollik">
+                    <div id="changenametxt">
+                        <p>Change group name</p>
+                    </div>
+                    <button type="submit" id="changenamebutton">Change</button>
+                </div> -->
+                <div id="scrollnotificationswrap">
+                    <div id="scrollnotifications">
+                        <p id="scrollnotificationsp">Notifications</p>
+                    </div>
+                </div>
+                <div id="mijancq"></div>
+                <div id="scrollmedia" class="scrollik">
+                    <p class="scrollp">Media</p>
+                </div>
+                <div id="background" class="scrollik">
+                    <p class="scrollp">Chat Background</p>
+                </div>
+                <div id="members">
+                    <div id="membersmembers">
+                        <img src="/media/icons/members1.png" class="picnik">
+                    </div>
+                    <p id="memebersp">Members</p>
+                    <div id="membersaddmembers">
+                        <img src="/media/icons/addmembers.png" class="picnik">
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div id="chatbackgrounddiv">
+            <div id="chatbackgrounddiv1">
+                <div id="chatbackgrounddiv1arrow">
+                    <img src="/media/icons/arrow.png" class="picnik">
+                </div>
+                <p id="chatbackgrounddiv1p">Change Background</p>
+                <div id="chatbackgrounddiv1cross">
+                    <img src="/media/icons/cross2.png" class="picnik">
+                </div>
+            </div>
+            <div id="chatbackgrounddiv2">
+                <div id="bg1" class="bg">
+                    <img src="/media/background/bg1.png" class="picniksquare" id="bg1pic">
+                </div>
+                <div id="bg2" class="bg">
+                    <img src="/media/background/bg2.png" class="picniksquare">
+                </div>
+                <div id="bg3" class="bg">
+                    <img src="/media/background/bg3.png" class="picniksquare">
+                </div>
+                <div id="bg4" class="bg">
+                    <img src="/media/background/bg4.jpg" class="picniksquare">
+                </div>
+                <div id="bg5" class="bg">
+                    <img src="/media/background/bg5.jpg" class="picniksquare">
+                </div>
+                <div id="bg6" class="bg">
+                    <img src="/media/background/bg6.png" class="picniksquare">
+                </div>
+                <div id="bg7" class="bg">
+                    <img src="/media/background/bg7.jpg" class="picniksquare">
+                </div>
+                <div id="bg8" class="bg">
+                    <img src="/media/background/bg8.jpg" class="picniksquare">
+                </div>
+
+            </div>
+        </div>
+
+        <div id="addmemberdiv">
+            <div id="addmemberdiv1">
+                <p id="addmemberdiv1p">Add Members</p>
+                <div id="addmemberdiv11">
+                    <img src="/media/icons/arrow.png" class="picnik">
+                </div>
+            </div>
+            <div id="addmemberdiv2">
+                <div id="addmemberdiv21">
+                    <img src="/media/icons/search.png" class="picnik">
+                </div>
+                <input type="text" id="addmemberdiv2input" placeholder="Search">
+            </div>
+            <div id="addmemberdiv3"></div>
+            <div id="addmemberdiv4">
+                <button type="button" id="addmemberdiv4cancel">Cancel</button>
+                <button type="button" id="addmemberdiv4add">Add</button>
+            </div>
+        </div>
+            <!-- <div id="groupdivimg"></div> -->
+
+        <div id="scrolluserinfo">
+            <div id="scrolluserinfotop">
+                <p>User Info</p>
+            </div>
+            <div id="scrolluserinfo2">
+                <div id="scrolluserinfo2photo"></div>
+                <div id="scrolluserinfo2wrap">
+                    <div id="scroll2username">
+                        <p class="scroll2usernamep" id="scroll2usernamepid"></p>
+                    </div>
+                   <div id="scroll2online">online</div>  <!--  heto es pahy kazmakerpel  -->
+                </div>
+            </div>
+            <div id="scrolluserinfo3">
+                <div id="scrolluserinfo3username">
+                    <p> Username</p>
+                    <div id="scrolluserinfo3bio1copy"></div>
+                </div>
+                <div id="scrolluserinfo3username1">
+                    <p id="scrolluserinfo3username1p"></p>
+                </div>
+            </div>
+            <div id="scrolluserinfo4">
+                <div id="scrolluserinfo4bio">
+                    <p> Bio</p>
+                </div>
+                <div id="scrolluserinfo4bio1">
+                    <p id="scrolluserinfo4bio2p"></p>
+                </div>
+            </div>
+        </div>
+        <!-- topwrapperic vor groupi anunn enq poxum-->
+        <div id="changenamesmall">   <!-- groupname -->
+            <input type="text" id="changenameinput">
+            <button type="button" id="namebutton">Save</button>
+        </div> 
+        <!-- topwrapperic vor groupi anunn enq poxum-->
+
+        <div id="divcreatenewgroup">
+            <div id="creategrptop">
+                <input type="text" id="usersearch" placeholder="Search...">
+            </div>
+            <div id="divsearched"></div>
+            <div id="creategrpbuttom">
+                <button id="creategrpbutton">Create Group</button>
+            </div>
+        </div>
+        <div id="darkdivcreate"></div>
+        <div id="darkdivcreate2"></div>
+        <div id="hide2"></div>
+
+        <!-- <input type="file" id="sendphotochat"> -->
+
+<!-- kap chuneneq sra het _________________________________ -->
+        <div id="darkendiv"></div>
+        <div id="doubledarkendiv"></div>
+        <div id="centerdiv">
+            <div id="centerdivtop">
+                <p>My Profile</p>
+                <!-- <button id="closecenterdiv">close</button> -->
+                <div id="closecenterdiv">
+                    <img src="/media/icons/cross2.png" id="closecenterdivpic" class="picnik">
+                </div>
+            </div>
+            <div id="centerdiv2">
+                <div id="centerdiv211">
+                    <div id="centerdiv21"></div>
+                    <div id="centerdiv20">
+                        <img src="/media/icons/camera.png" id="centerdiv20pic" class="picnik">
+                    </div>
+                </div>
+                <div id="centerdiv22">
+                    <p id="centerdiv22p"></p>
+                </div>
+            </div>
+            <!-- <div id="centerdivbio0">
+                <p class="centikp">Bio</p>
+            </div> -->
+            <div id="centerdivbio">
+                <textarea id="centerdivbioinp" rows="1"></textarea>
+                <div id="centerdivbio01">
+                    <p id="centerdivbio01p">h</p>
+                </div>
+            </div>
+            <div id="centerdivbio1">
+                <div id="centerdivbio11">
+                    <p>
+                        Any details such as age, occupation or city. Example: 23 y.o. designer from San Francisco
+                    </p>
+                </div>
+            </div>
+            <div id="centerdiv3" class="centik">
+                <p class="centikp">Name</p>
+                <p id="centerdiv32">hehehe</p>
+            </div>
+            <div id="centerdiv4" class="centik">
+                <p class="centikp">Username</p>
+                <p id="centerdiv42">jii</p>
+            </div>
+            </div>
+           <!--  <div id="profilepichangeopen">
+                <p>pipiipipipip</p>
+            </div></div> -->
+           
+            <!-- <div id="biochangeopen">
+                <p>Change Bio</p>
+            </div> -->
+
+     <!-- <div id="smalldivpic">   
+       <form id="profileimageform">
+        {% csrf_token %}
+            
+            <button type="button" id="profileimagebutton">
+                Change Profile Picture
+            </button>
+       </form>
+    </div> -->
+
+    <input type="file" id="profileimageinput" name="imageinput">
+
+    <div id="smalldivusername" class="smallik">
+        <div id="smalldivusername1" class="smallik1">
+            <p>New username</p>
+        </div>
+        <div id="smalldivusername5" class="smallik5">
+            <p>Enter your new username here</p>
+        </div>
+        <div id="smalldivusername2" class="smallik2">
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" id="usernameinput" name="usernameinput" >
+            </form>
+        </div>
+        <div id="smalldivusername3" class="smallik3">
+            <button type="button" id="usernameinputbutton" class="smallikbutton">Save</button>
+        </div>
+    </div>
+
+    <div id="smalldivname" class="smallik">
+        <div id="smalldivname1" class="smallik1">
+            <p>New name</p>
+        </div>
+        <div id="smalldivname5" class="smallik5">
+            <p>Enter your new name here</p>
+        </div>
+        <div id="smalldivname2" class="smallik2">
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" id="nameinput" name="nameinput" >
+            </form>
+        </div>
+        <div id="smalldivname3" class="smallik3">
+            <button type="button" id="nameinputbutton" class="smallikbutton">Save</button>
+        </div>
+    </div>
+
+    <div id="smalldivbio">
+        <input type="text" id="bioinput" name="bioinput">
+        <button type="button" id="bioinputbutton">Change Bio</button>
+    </div>
+<!-- kap chuneneq sra het _________________________________ -->
+        <script>
+
+            function animateTransition(fromElementId, toElementId, pass) {
+                const fromElement = document.getElementById(fromElementId);
+                const toElement = document.getElementById(toElementId);
+                
+                fromElement.classList.add('slide-out');
+                setTimeout(() => {
+                    fromElement.style.display = 'none';
+                    toElement.style.display = 'block';
+                    toElement.classList.add('slide-in');
+                }, 100);
+                
+                
+                setTimeout(() => {
+                    fromElement.classList.remove('slide-out');
+                    toElement.classList.remove('slide-in');
+                }, 300);
+            
+            }
+
+            document.getElementById('background').addEventListener('click', function() {
+                animateTransition('groupdiv', 'chatbackgrounddiv');
+            });
+
+            document.getElementById('membersaddmembers').addEventListener('click', function() {
+                animateTransition('groupdiv', 'addmemberdiv');
+
+                socket.send(JSON.stringify({'addmember':true, 'id':currentgroupid}))
+
+            });
+
+            function animateTransition(fromElementId, toElementId, toDisplay = 'block') {
+                const fromElement = document.getElementById(fromElementId);
+                const toElement = document.getElementById(toElementId);
+                
+                // Start animations
+                fromElement.classList.add('slide-out');
+                
+                // When the slide-out animation is halfway done, start showing the new div
+                setTimeout(() => {
+                    fromElement.style.display = 'none';
+                    toElement.style.display = toDisplay; // Flexible display value
+                    toElement.classList.add('slide-in');
+                }, 100);
+                
+                // Clean up animation classes after they complete
+                setTimeout(() => {
+                    fromElement.classList.remove('slide-out');
+                    toElement.classList.remove('slide-in');
+                }, 300);
+            }
+
+            document.getElementById('chatbackgrounddiv1arrow').addEventListener('click', function() {
+                animateTransition('chatbackgrounddiv', 'groupdiv', 'flex')
+            })
+
+            document.getElementById('addmemberdiv11').addEventListener('click', function() {
+                animateTransition('addmemberdiv', 'groupdiv', 'flex')
+                let addmemberdiv2divik = document.querySelectorAll('.addmemberdiv2divik')
+                let addmembersearchdiv = document.querySelectorAll('.addmembersearchdiv')
+                addmemberdiv2divik.forEach(div => {
+                    div.remove()
+                })
+                addmembersearchdiv.forEach(div => {
+                    div.remove()
+                })
+                clickedmembers = []
+            })
+            
+            const textarea = document.getElementById('rightinput');
+
+            // Set initial height
+            textarea.style.height = '20px';
+
+            textarea.addEventListener('input', function() {
+            // this.style.height = 'auto'; // Reset height
+            this.style.height = Math.min(this.scrollHeight, 150) + 'px';
+            
+            // Toggle overflow
+            if (this.scrollHeight > 150) {
+                this.style.overflowY = 'auto';
+            } else {
+                this.style.overflowY = 'hidden';
+            }
+            });
+            
+            let leftside = document.getElementById('leftside')
+
+            let isReadyToResize = false;
+            let isResizing = false;
+            let holdTimer;
+
+            document.getElementById('centerdivbioinp').addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+    // Limit to container height
+            const maxHeight = 100; // matches max-height in CSS
+            if (this.scrollHeight > maxHeight) {
+                this.style.overflowY = 'auto';
+            } else {
+                this.style.overflowY = 'hidden';
+            }
+        });
+
+        function leftdivstyle(url, div, groupname){
+            if (url === 'nourl'){
+                    let divik = document.createElement('div')
+                    let textdivik = document.createElement('div')
+                    let smsdivik = document.createElement('div')
+                    let textsmsdivik = document.createElement('div')
+console.log('HINT 2')
+                    textsmsdivik.className = 'textsmsdivik'
+                    divik.className = 'divik'
+                    textdivik.className = 'textdivik'
+                    smsdivik.className = 'smsdivik'
+            
+                    textdivik.textContent = groupname
+                    div.appendChild(divik)
+                    console.log('HINT &')
+                    textsmsdivik.appendChild(textdivik)
+                    textsmsdivik.appendChild(smsdivik)
+                    div.appendChild(textsmsdivik)
+                }
+                else {
+                    let img = document.createElement('img')
+                    img.src = url
+                    let divik = document.createElement('div')
+                    divik.className = 'divik'
+                    divik.appendChild(img)
+                    let textdivik = document.createElement('div')
+                    let smsdivik = document.createElement('div')
+                    let textsmsdivik = document.createElement('div')
+
+                    textsmsdivik.className = 'textsmsdivik'
+                    divik.className = 'divik'
+                    textdivik.className = 'textdivik'
+                    smsdivik.className = 'smsdivik'
+                    
+                    console.log('HINT &')
+                    textdivik.textContent = groupname
+                    div.appendChild(divik)
+                    textsmsdivik.appendChild(textdivik)
+                    textsmsdivik.appendChild(smsdivik)
+                    div.appendChild(textsmsdivik)
+                }
+        }
+
+            //dzaxi tesqery leftdiveri
+            let groupinfo = JSON.parse("{{groupinfo|safe|escapejs}}".replace(/'/g, '"'))
+            let leftdivs = document.querySelectorAll('.leftdivs')
+
+            groupinfo.forEach((group, index) => {
+                console.log('pin2')
+                let div = leftdivs[index]
+                let url = group.groupimgurl
+                let groupname = group.groupname
+                leftdivstyle(url, div, groupname)
+            })
+
+            let socket = null
+            let activechat = null
+            let currentgroupid = null
+            let lastsender = null
+            let groupidtrack = null
+            let mssgcount = {}
+            let track = []
+            let typingtrack = []
+            let membertrack = []
+            let opened = false
+            let currentbio = ''
+            let oldbio = ''
+            let newname = ''
+            let newusername = ''
+            let oldusername = ''
+            let newurl = ''
+            let mijancq2opened = false
+            let userinfoall = []
+            let userlist = []
+            let clickedmembers = []
+            let grpel = ''
+
+            //groupi background poxel
+            // 2rd searchi connectiony
+            document.getElementById('createnewgroup').addEventListener('click', function(){
+            console.log(socket)
+            let box = document.getElementById('divcreatenewgroup')
+            let divsearched = document.getElementById('divsearched')
+            let top = document.getElementById('creategrptop')
+            let searchfield = document.getElementById('usersearch')
+            let button = document.getElementById('creategrpbutton')
+            let currentuser = '{{userinfo.username}}'
+            let picked = []
+            
+            if (socket == null){
+                    socket = new WebSocket('ws://' + window.location.host + '/ws/search/')
+                    console.log('i am here')
+            }
+            else if(socket.url !== 'ws://' + window.location.host + '/ws/search/'){
+                socket = new WebSocket('ws://' + window.location.host + '/ws/search/')
+                    console.log('i am here2')
+            }
+            document.getElementById('usersearch').addEventListener('input', function(){
+            console.log(socket)
+            
+            let txt = usersearch.value
+            console.log(txt)
+            socket.send(JSON.stringify({'txt':txt}))
+            })
+
+            socket.onmessage = function(event) {
+                let data = JSON.parse(event.data)
+                if (data.userlist){
+                let usernames = data['userlist']
+                    if(usernames.length >= 1){
+                        usernames.forEach(i => {
+
+                            Array.from(divsearched.children).forEach(child => {
+                                if(!(usernames.includes(child.innerText))){
+                                    console.log('UMBRELLA')
+                                    divsearched.removeChild(child)
+                                }
+                            })
+
+                            let exists = Array.from(divsearched.children).some(child => child.textContent === i)
+                        
+                            if (!exists){
+                                console.log('1')
+                                
+                                let div = document.createElement('div')
+                                div.textContent = i
+                                div.setAttribute('data-usernames', i)
+                                if (!(picked.includes(i))){
+                                    div.className = 'searchusers'
+                                }
+                                else{
+                                    div.classList.add('searchusers')
+                                    div.classList.add('searchighlight')
+                                }
+                                divsearched.appendChild(div)
+                                div.addEventListener('click', function(){
+                                    let track = div.classList.toggle('searchighlight') // stex 2rd angam vor search es talis higlighty koruma
+                                    console.log(track)
+                                    if (track == true ){
+                                        if(!(picked.includes(i))){
+                                        searchfield.value = ''
+                                        picked.push(i)
+                                        let sml = document.createElement('div')
+                                        let inp = document.getElementById('usersearch')
+                                        sml.textContent = i
+                                        sml.className = 'topusername'
+                                        top.insertBefore(sml, inp)
+                                        }
+                                    }
+                                    else {
+                                        let hold = Array.from(top.children).find(child => child.textContent === i)
+                                        top.removeChild(hold)
+                                        let index = picked.indexOf(i);
+                                        if (index !== -1) {
+                                            picked.splice(index, 1);
+                                        }
+                                    }
+                                })
+                                console.log(picked)
+                            }
+                            // else {
+                            //     console.log('condition 4')
+                            //     let div = document.createElement('div')
+                            //     div.textContent = i
+                            //     div.className = 'searchighlight'
+                            // }
+                            
+                        })
+                    }
+                    else {
+                        while(divsearched.firstChild){
+                            divsearched.removeChild(divsearched.firstChild)
+                        }
+                        console.log('else condition')
+                    }
+                    }
+                else if(data.groupname) {
+                    console.log('1')
+                    let groupname = data.groupname
+                    let id = data.id
+                    let leftside = document.getElementById('leftside')
+                    let leftie = document.createElement('div')
+                    leftie.setAttribute('data-ids', id)
+                    leftie.textContent = groupname
+                    leftie.textContent = id
+                    leftie.className = 'leftdivs'
+                    leftside.appendChild(leftie)
+                    console.log('now i am hee morm')
+                    newdivleft(leftie)
+
+                }
+                else if(data.newgroupname){
+                    console.log('stexov el hasanq azzzz')
+                    console.log(data.groupname)
+                }
+
+        }
+            button.addEventListener('click', function(){  // heto avelacnel vor stugi et membernerov xumb ka te che
+                if (!(picked.length === 0)){
+                    socket.send(JSON.stringify({'picked':picked, 'username':currentuser}))
+                }
+            })
+        })
+
+        function handleLeftDivClick(clickedDiv) {
+            document.querySelectorAll('.leftdivs').forEach(el => {
+                el.classList.remove('active');
+                el.style.animation = 'none';
+                void el.offsetWidth;
+            });
+            
+            clickedDiv.classList.add('active');
+            clickedDiv.style.animation = 'none';
+            void clickedDiv.offsetWidth;
+            clickedDiv.style.animation = '';
+        }
+
+        document.querySelectorAll('.leftdivs').forEach(div =>{
+                div.addEventListener('click', function(e){
+                    handleLeftDivClick(this);
+
+                    console.log('clicked')
+                    group_id = div.getAttribute('data-ids')
+                    img = div.getAttribute('data-background')
+                    console.log(group_id)
+                    if (activechat !== null){
+                        activechat.style.display = 'none'}
+
+                    let chatdiv = document.getElementById('chat' + group_id)
+                    let top = document.getElementById('topwrapper')
+                    let toptop = document.getElementById('toptop')
+                    let topbuttom = document.getElementById('topbuttom')
+                    let groupinfo = JSON.parse("{{groupinfo|safe|escapejs}}".replace(/'/g, '"'))
+                    
+                    groupinfo.forEach(info => {
+                        if (info.groupid == group_id){
+                            let members = info.members
+                            toptop.textContent = info.groupname
+                            topbuttom.textContent = info.members.length + ' members'
+                        }
+                    })
+                    console.log('shine bright')
+
+                    if (!chatdiv){
+                        chatdiv = document.createElement('div')
+                        chatdiv.id = 'chat' + group_id
+                        chatdiv.className = 'chatdiv'
+                        let rightside = document.getElementById('rightside');
+                        let bottomwrapper = document.getElementById('bottomwrapper');
+                        rightside.insertBefore(chatdiv, bottomwrapper);
+                        console.log('MITE EL CHKANQ ????')
+                        chatdiv.style.backgroundImage = `url(${img})`
+                        chatdiv.style.backgroundSize = 'cover';
+                    }
+                    if (currentgroupid !== group_id){
+                        currentgroupid = group_id
+                        websockconnect(chatdiv, group_id, track)
+                    }
+                    
+                    chatdiv.style.display = 'inline'
+                    activechat = chatdiv
+                    console.log('HN ARAAAAAAA????')
+                })
+            })
+
+        // CHANGING THE BACKGROUND
+        document.getElementById('chatbackgrounddiv2').addEventListener('click', function(e) {
+            let bgdiv = e.target.closest('.bg')
+            if(bgdiv && currentgroupid){
+                let name = 'chat'+currentgroupid
+                let chatdiv = document.getElementById(name)
+                let img = bgdiv.querySelector('img').src
+
+                // chatdiv.style.backgroundImage = `url(${img})`
+                // chatdiv.style.back
+                console.log('super')
+                console.log(img)
+
+                let newimg = img.split('8000').pop()
+                console.log(newimg)
+                
+                socket.send(JSON.stringify({'background':img, 'id':currentgroupid}))
+
+            }
+        })
+
+        //ADDING A NEW USER
+        // document.getElementById('membersaddmembers').addEventListener('click', function(){
+
+        // })
+        
+
+        // groupy bacelu masy en layn
+        document.getElementById('topwrapper').addEventListener('click', function() {
+            let tmp = document.querySelectorAll('.scrollmember')
+            tmp.forEach(tmp => tmp.remove())
+
+            let tmp2 = document.getElementById('inga')
+            if (tmp2){
+                tmp2.remove()
+            }
+
+            let groupdiv = document.getElementById('groupdiv')
+            let groupscroll = document.getElementById('groupscroll')
+            let grouphoto = document.getElementById('scrollgroupimg')
+            let groupscrollgroupname = document.getElementById('groupscrollgroupname')
+            let countdiv = document.getElementById('groupscrollmembercount')
+
+            let p = document.getElementById('scroll2usernamepid')
+            let p1 = document.getElementById('scrolluserinfo3username1p')
+            let p2 = document.getElementById('scrolluserinfo4bio2p')
+
+            let p3 = document.getElementById('groupscrollgroupnamep')
+            let p4 = document.getElementById('groupscrollmembercountp')
+
+            let copybutton = document.getElementById('scrolluserinfo3bio1copy')
+
+            let darkdivcreate = document.getElementById('darkdivcreate')
+            let darkdivcreate2 = document.getElementById('darkdivcreate2')
+            let hide2 = document.getElementById('hide2')
+            let scrolluserinfo4 = document.getElementById('scrolluserinfo4')
+
+            let scrolluserinfo = document.getElementById('scrolluserinfo')
+            let imgdiv = document.getElementById('scrolluserinfo2photo')
+            let scroll2username = document.getElementById('scroll2username')
+
+            let groupinfo = JSON.parse("{{groupinfo|safe|escapejs}}".replace(/'/g, '"'))            
+            let userinfo = JSON.parse("{{alluserinfo|safe}}".replace(/'/g, '"'))
+        
+            let mij = document.getElementById('mijancq2')
+
+            if (mij){
+                mij.remove()
+            }
+            // groupinfo
+            let data = groupinfo.find(group => group.groupid == currentgroupid)
+            console.log('DATA')
+            console.log(data)
+            console.log('here1')
+            p3.textContent = data.groupname
+            console.log('here2')
+            let inga = document.createElement('img')
+            inga.src = data.groupimgurl
+            inga.id = 'inga'
+            grouphoto.appendChild(inga)
+
+            let txt = data.members.length + ' members'
+            p4.textContent = txt
+            // groupinfo
+
+            let members = data.members
+                members.forEach(member => {
+                    let user = userinfo.find(i => i.username == member)
+
+                    let memberdiv = document.createElement('div')
+                    memberdiv.className = 'scrollmember'
+
+                    let imgdiv = document.createElement('div')
+                    imgdiv.className = 'scrollimgdiv'
+
+                    let textdiv = document.createElement('div')
+                    textdiv.className = 'scrolltextdiv'
+
+                    if (member == '{{userinfo.username}}' && newusername != ''){
+                        textdiv.textContent = newusername
+                        oldusername = member
+                        console.log('condition 1')
+                    }
+                    else {
+                        textdiv.textContent = member
+                        console.log('condition 2')
+                    }
+
+                    if (newurl != '' && (textdiv.textContent == newusername || textdiv.textContent == '{{userinfo.username}}') ){
+                        let img = document.createElement('img')
+                        img.src = newurl
+                        imgdiv.appendChild(img)
+                    }
+                    else {
+                        console.log('cha cha')
+                        if (user.url != 'nourl'){
+                        let img = document.createElement('img')
+                        
+                        img.src = user.url
+                        imgdiv.appendChild(img)
+                        console.log(img)
+                        console.log(newurl)
+                        console.log('everest')
+                        }
+                    }
+                    
+                    memberdiv.appendChild(imgdiv)
+                    memberdiv.appendChild(textdiv)
+                    groupscroll.appendChild(memberdiv)
+
+                })
+                if (mijancq2opened == false){
+                    let mijancq2 = document.createElement('div')
+                    mijancq2.id = 'mijancq2'
+                    groupscroll.appendChild(mijancq2)
+                    console.log('skvazdnyak')
+                }
+
+                groupdiv.style.display = 'flex'
+                darkdivcreate.style.display = 'block'
+
+                document.querySelectorAll('.scrollmember').forEach(div => {
+                    div.addEventListener('click', function(){
+                        let exists = imgdiv.querySelector('.imgscroll')
+                        let clickeduser = ''
+
+                        if (exists){
+                            exists.remove()
+                        }
+                        scrolluserinfo.style.display = 'flex'
+                        darkdivcreate2.style.display = 'block'
+                        hide2.style.display = 'block'
+                        let textdiv = this.querySelector('div:last-child')
+                        console.log(textdiv.textContent)
+
+                        if (oldusername == ''){
+                            clickeduser = userinfo.find(i => i.username == textdiv.textContent)
+                            console.log('condition 3')
+                            console.log(oldusername)
+                        }
+
+                        else {
+                            console.log(oldusername)
+                            let inf = JSON.parse("{{alluserinfo|safe}}".replace(/'/g, '"'))
+                            clickeduser = inf.find(i => i.username == oldusername)
+                            // console.log(JSON.parse("{{alluserinfo|safe}}".replace(/'/g, '"')))
+
+                            console.log('condition 4')
+                        }
+                        
+                        console.log('our clickeduser ')
+
+                        if (newurl != '' && (p.textContent == '{{userinfo.username}}' || p.textContent == newusername ||
+                            p.textContent == newname || p.textContent == '{{userinfo.name}}'))
+                        {
+                            let img = document.createElement('img')
+                            img.src = newurl
+                            img.className = 'imgscroll'
+                            imgdiv.appendChild(img)
+                        }
+                        else{
+                            let img = document.createElement('img')
+                            img.src = clickeduser.url
+                            img.className = 'imgscroll'
+                            imgdiv.appendChild(img)
+                        }
+                        
+                        if (clickeduser.name == 'noname'){
+                            if (clickeduser.username == oldusername && oldusername != ''){
+                                p.textContent = newusername
+                            }
+                            else {
+                                p.textContent = clickeduser.username
+                            }
+                        }
+                        else{
+                            if (newname == ''){
+                                p.textContent = clickeduser.name
+                            }
+                            else {
+                                p.textContent = newname
+                            }      
+                        }
+
+                        if (clickeduser.username == oldusername && oldusername != ''){
+                            p1.textContent = newusername
+                            }
+                        else {
+                            console.log('medlyak')
+                            console.log(clickeduser)
+                            p1.textContent = clickeduser.username
+                        }
+
+
+                        if (!(clickeduser.bio == 'nobio')){
+                            scrolluserinfo4.style.display = 'flex'
+                            p2.textContent = clickeduser.bio
+                        }
+
+                        else {
+                            scrolluserinfo4.style.display = 'none'
+                        }
+                            copybutton.addEventListener('click', async() => {
+                                console.log('copybutton clicked')
+                                let txt = clickeduser.username
+                                navigator.clipboard.writeText(txt)
+
+                            })
+                    })
+                })
+                
+                darkdivcreate.addEventListener('click', function(){
+                    scrolluserinfo.style.display = 'none'
+                })
+
+                hide2.addEventListener('click', function(){
+                    console.log('hide2 clicked')
+                    scrolluserinfo.style.display = 'none'
+                    darkdivcreate2.style.display = 'none'
+                    hide2.style.display = 'none'
+                })
+            })
+
+        //savei buttony
+        // document.getElementById('changenamebutton').addEventListener('click', function(){
+            
+        //     let div = document.getElementById('changenamesmall')
+        //     div.style.display = 'flex'
+        //     let txtfield = document.getElementById('changenameinput')
+            
+        //     document.getElementById('namebutton').addEventListener('click', function(){
+        //         console.log('Save clicked')
+        //         let txt = txtfield.value
+        //         console.log('current group id')
+        //         console.log(currentgroupid)
+        //         socket.send(JSON.stringify({'newgroupname':txt, 'id':currentgroupid}))
+        //     })
+        // })
+        //savei buttony
+
+                    function websockconnect(chatdiv, group_id, track) {
+                        if (socket !== null){
+                            socket.close()
+                        }
+                        console.log('clicked')
+                        socket = new WebSocket('ws://' + window.location.host + '/ws/chat/' + group_id + '/')
+                        console.log('CONNECTION ESTABLISHED')
+
+                        socket.onmessage = function(event){    //ONMESSAGE HEREEEE <---------------------
+                                let res = JSON.parse(event.data)
+                                console.log('we are here')
+                                console.log(res.oldmessage)
+
+                                if (res.oldmessage) {
+                                    if (!track.includes(group_id)){
+                                    track.push(group_id)
+                                    console.log(track)
+                                    res.oldmessage.forEach(i =>{
+                                        let txt = document.createElement('p')
+                                        if (i.message){
+                                            // messagedisplay(chatdiv, i)
+                                        }
+                                        else if (i.url){
+                                            let img = document.createElement('img')
+                                            console.log('sirun axjik')
+                                            img.src = i.url
+                                            img.style.width = '50px'
+                                            chatdiv.append(img)
+                                        }
+                                    })
+                                }
+                                }
+                    
+                                else if(res.message){
+                                    if (res.message){
+                                        let leftdivs = document.querySelectorAll('.leftdivs')
+
+                                        leftdivs.forEach(div => {
+                                        let id = div.getAttribute('data-ids')
+                                        
+                                        if (id == group_id){
+                                            let textdiv = div.querySelector('.smsdivik')
+                                            // textdiv.textContent = res.message
+                                        }
+                                        })
+                                        messagedisplay(chatdiv, res, group_id)
+                                    }
+                                    if (res.url){
+                                        let img = document.createElement('img')
+                                        img.src = res.url
+                                        img.style.width = '50px'
+                                        chatdiv.append(img)
+                                    }
+                                }
+                                else if(res.groupname){
+                                    console.log('2')
+                                    let groupname = res.groupname
+                                    let id = res.id
+                                    console.log(groupname)
+                                    console.log(id)
+                                    let leftside = document.getElementById('leftside')
+                                    let leftie = document.createElement('div')
+                                    leftie.setAttribute('data-ids', id)
+                                    leftie.textContent = groupname
+                                    leftie.textContent = id
+                                    leftie.className = 'leftdivs'
+                                    leftside.appendChild(leftie)
+                                    newdivleft(leftie)
+                                }
+
+                                else if(res.profileuser){
+                                    let darkendiv = document.getElementById('darkendiv')
+                                    
+                                    console.log(res.profileuser.username)
+                                    console.log(res.profileuser.bio)
+                                    let divik = document.getElementById('rightside')
+                                    let div = document.createElement('div')
+                                    let img = document.createElement('img')
+                                    img.src = res.profileuser.url
+                                    img.className = 'imgchatprofile'
+                                    div.className = 'divchatprofile'
+                                    div.innerText = res.profileuser.username
+                                    div.appendChild(img)
+                                    divik.appendChild(div)
+                                    darkendiv.style.display = 'block'
+                                    let divchatprofile = document.querySelectorAll('.divchatprofile')
+                                    
+                                    darkendiv.addEventListener('click', function(){
+                                        divchatprofile.forEach(div => {
+                                            div.style.display = 'none'
+                                            darkendiv.style.display = 'none'
+                                        })
+                                        
+                                    })
+                                }
+                                else if(res.typinguser){
+                                    console.log('here1')
+                                    console.log(typingtrack)
+                                    let currentuser = '{{userinfo.username}}'
+                                    console.log(res.typinguser)
+                                    console.log(currentuser)
+                                    if (res.typinguser !== currentuser) {
+                                    
+                                        let div = document.getElementById('divtyping')
+                                        div.textContent = ''
+                                        if (!typingtrack.includes(res.typinguser)) {
+                                            typingtrack.push(res.typinguser);
+                                        }
+                                                                    
+                                        typingtrack.forEach(user => {
+                                            console.log(user)
+                                            console.log(res.typinguser)
+                                            div.textContent += user +','
+                                        })
+                                        div.textContent += ' is typing...'
+
+                                        console.log('here2')
+                                        console.log(typingtrack)
+                                    }
+                                }
+                                else if(res.notypinguser){
+                                    console.log('here3')
+                                    console.log(typingtrack)
+                                    let div = document.getElementById('divtyping')
+                                    div.textContent = ''
+                                        typingtrack.forEach(user => {
+                                            if(user == res.notypinguser){
+                                                let index = typingtrack.indexOf(user)
+                                                typingtrack.splice(index, 1)
+                                            }})
+                                        if (typingtrack.length > 0){
+                                            typingtrack.forEach(i => {
+                                                div.textContent += i +','
+                                            })
+                                            div.textContent += ' is typing...'
+                                        }
+                                        else {
+                                            div.textContent = ''
+                                        }
+                                    console.log('here4')
+                                    console.log(typingtrack)
+                                }
+                                else if (res.newgroupname){
+                                    let groupname = res.newgroupname
+                                    console.log('hasanq Emssss')
+                                    console.log(groupname)
+                                    let div = Array.from(document.querySelectorAll('.textdivik')).find(div => div.textContent == 'whip')
+                                    div.textContent = res.newgroupname
+                                }
+                                else if (res.notif){
+                                    console.log('WE ARE IN NOTIF')
+                                    let notification = res.notif
+                                    console.log(notification.groupname)
+                                    let notifdiv = document.getElementById('notifdiv')
+                                    let notifgroupname = document.getElementById('notifgroupname')
+                                    let notiftext = document.getElementById('notiftext')
+
+                                    notifdiv.style.top = '5px'
+
+                                    notiftext.textContent = notification.sender + ':  '+ notification.text
+                                    notifgroupname.textContent = notification.groupname
+                                    console.log('J8j8j8j8')
+                                    console.log(notifgroupname.textContent)
+                                    setTimeout(() => {
+                                        notifdiv.style.top = '-100px'
+                                    }, 3000)
+                                }
+                                else if (res.background){
+                                    img = res.background
+                                    id = res.id
+                                    name = 'chat' + id
+                                    console.log('in receive_')
+                                    console.log(img)
+                    
+                                    let chatdiv = document.getElementById(name)
+
+                                    if (chatdiv && id == currentgroupid){
+                                        chatdiv.style.backgroundImage = `url(${img})`
+                                        chatdiv.style.backgroundSize = 'cover';
+                                        console.log('case1 mur')
+                                    }
+                                    else if (chatdiv && id != currentgroupid){
+                                        console.log('ids do not match')
+                                        chatdiv.style.backgroundImage = `url(${img})`
+                                        chatdiv.style.backgroundSize = 'cover';
+                                        console.log('case2 mur')
+                                    }
+                                    else if (!chatdiv && id != currentgroupid){
+                                        chatdiv = document.createElement('div')
+                                        chatdiv.id = 'chat' + id
+                                        chatdiv.className = 'chatdiv'
+                                        let rightside = document.getElementById('rightside');
+                                        let bottomwrapper = document.getElementById('bottomwrapper');
+                                        rightside.insertBefore(chatdiv, bottomwrapper);
+
+                                        chatdiv.style.backgroundImage = `url(${img})`
+                                        chatdiv.style.backgroundSize = 'cover';
+                                        console.log('case3 mur')
+                                        chatdiv.style.display = 'none'
+                                    }   
+
+                                }
+                                else if (res.addmembersearch){
+                                    userinfo = res.addmembersearch
+                                    userlistt = res.userlist
+                                    userinfoall = userinfo
+                                    userlist = userlistt
+                                    console.log(userinfo)
+                                    userinfo.forEach(user => {
+                                        // console.log(user.photo),
+                                        // console.log(user.username)
+                                        // console.log(user.username)
+                                        console.log(user.photo)
+                                        console.log(user.username)
+                                    })
+                                    addmembersearch(userinfo, userlistt)
+                                }
+                                else if (res.addnewmember){
+                                    console.log('moyo solnce')
+                                    console.log(res)
+                                    let groupname = res.groupnam
+                                    let id = res.id
+                                    let img = res.bg
+                                    let groupimg = res.groupimg
+                                    grpel = groupname
+
+                                    console.log('GRPEEEL')
+                                    console.log(grpel)
+                                    let leftside = document.getElementById('leftside')
+                                    let leftie = document.createElement('div')
+
+                                    leftie.setAttribute('data-ids', id)
+                                    leftie.className = 'leftdivs'
+                                    // leftie.textContent = groupname
+                                    
+                                    leftdivstyle(groupimg, leftie, grpel)
+                                    leftside.appendChild(leftie)
+                                    newdivaddedmember(leftie, img)
+                                }
+                                
+                        }
+            }
+
+             function newdivaddedmember(leftie, img){
+                leftie.addEventListener('click', function(){
+                    console.log('Leftie Clicked')
+                    
+                    handleLeftDivClick(this);
+
+                    group_id = leftie.getAttribute('data-ids')
+                    console.log(group_id)
+                    console.log(group_id)
+                    console.log('GRPEEEL')
+                    console.log(grpel)
+                    if (activechat !== null){
+                        activechat.style.display = 'none'
+                    }
+
+                    let chatdiv = document.getElementById('chat' + group_id)
+
+                    if (!chatdiv){
+                        chatdiv = document.createElement('div')
+                        chatdiv.id = 'chat' + group_id
+                        chatdiv.className = 'chatdiv'
+                        let rightside = document.getElementById('rightside');
+                        let bottomwrapper = document.getElementById('bottomwrapper');
+                        rightside.insertBefore(chatdiv, bottomwrapper);
+                        console.log('MITE EL CHKANQ ????')
+                        console.log(img)
+                        // chatdiv.style.backgroundImage = `url(${img})`
+                        // chatdiv.style.backgroundSize = 'cover';
+                    }
+                    if (currentgroupid !== group_id){
+                        currentgroupid = group_id
+                        websockconnect(chatdiv, group_id, track)
+                    }
+                    
+                    chatdiv.style.display = 'inline'
+                    activechat = chatdiv
+                    console.log('Didi')
+                })
+            }
+
+            function addmembersearch(userinfo, userlist){
+                console.log('We are in function')
+                let addmemberdiv21 = document.getElementById('addmemberdiv21')
+                let addmemberdiv2input = document.getElementById('addmemberdiv2input')
+                addmemberdiv21.style.display = 'flex'
+                addmemberdiv2input.placeholder = 'Search'
+
+
+                let addmemberdiv3 = document.getElementById('addmemberdiv3')
+                userinfo.forEach(user => {
+                    let div = document.createElement('div') //himnakan erkar divy
+                    div.className = 'addmembersearchdiv'
+
+                    let imgdiv = document.createElement('div')
+                    imgdiv.classList.add('addmembersearchimgdiv')
+                    
+                    div.addEventListener('click', function(){
+                        console.log('clicked')
+                        div.classList.toggle('clickedaddmembersearchdiv')
+                        console.log(div.textContent)
+                        if (!clickedmembers.includes(div.textContent)){
+                            clickedmembers.push(div.textContent)
+                            console.log('kond1')
+                            console.log(clickedmembers)
+                        }
+                        else {
+                            let index = clickedmembers.indexOf(div.textContent)
+                            clickedmembers.splice(index, 1) // sksac et indexic qani item jnji 1 hima 
+                            console.log(clickedmembers)
+                        }
+                    })
+                    
+                    if (userlist.includes(user.username)){
+                        imgdiv.classList.add('addmembersearchimgdivincl')
+
+                        let imgdivsmall = document.createElement('div')
+                        imgdivsmall.className = 'addmembersearchimgdivsmall'
+                        imgdiv.appendChild(imgdivsmall)
+                        if (user.photo != 'nophoto'){
+                            let img = document.createElement('img')
+                            img.src = user.photo
+                            img.className = 'picnik'
+                            imgdivsmall.appendChild(img)
+                        }
+                    }
+                    else {
+                        if (user.photo != 'nophoto'){
+                        let img = document.createElement('img')
+                        img.src = user.photo
+                        img.className = 'picnik'
+                        imgdiv.appendChild(img)
+                        imgdiv.className = 'addmembersearchimgdiv2'
+                        }
+                        else {
+                            imgdiv.className = 'addmembersearchimgdiv2'
+                        }
+            }
+                    // let textdiv = document.createElement('div')
+                    let text = document.createElement('p')
+                    text.textContent = user.username
+                    text.className = 'addmembersearchp'
+
+                    div.appendChild(imgdiv)
+                    div.appendChild(text)
+                    addmemberdiv3.appendChild(div)
+                })
+                
+            }
+
+            document.getElementById('addmemberdiv2input').addEventListener('input', function(){
+                let text = document.getElementById('addmemberdiv2input').value
+                let addmemberdiv3 = document.getElementById('addmemberdiv3')
+                let erkardiv = document.querySelectorAll('.addmembersearchdiv')
+                let erkardiv2 = document.querySelectorAll('.addmembersearchdivexist')
+            
+                erkardiv.forEach(div => {
+                     div.remove()           
+                })
+                erkardiv2.forEach(div => {
+                    div.remove()
+                })
+                
+                console.log('erkar div')
+                console.log(erkardiv)
+                let start = []
+                let end = []
+
+                console.log(text)
+                
+                userinfoall.forEach(user => {
+                    console.log(user.username)
+                    if (user.username.startsWith(text)){
+                        start.push({
+                            photo: user.photo ? user.photo : 'nophoto',
+                            username: user.username
+                        })
+                    }
+                    else if (user.username.includes(text)){
+                        end.push({
+                            photo: user.photo ? user.photo : 'nophoto',
+                            username: user.username
+                        })
+                    }
+
+                })
+
+                result = [...start, ...end]
+                console.log('THE RESULT')
+                console.log(result)
+
+                result.forEach(user => {
+                    let div = document.createElement('div') //himnakan erkar divy
+
+                    let imgdiv = document.createElement('div')
+                    imgdiv.classList.add('addmembersearchimgdiv2')
+                    
+                    if (userlist.includes(user.username)){
+
+                        if (user.photo != 'nophoto'){
+                            let img = document.createElement('img')
+                            img.src = user.photo
+                            img.className = 'picnik'
+                            imgdiv.appendChild(img)
+                        }
+                        imgdiv.classList.add('selected2')
+                    }
+                    else {
+                        if (user.photo != 'nophoto'){
+                        let img = document.createElement('img')
+                        img.src = user.photo
+                        img.className = 'picnik'
+                        imgdiv.appendChild(img)
+                        imgdiv.className = 'addmembersearchimgdiv2'
+                        }
+                        else {
+                            imgdiv.className = 'addmembersearchimgdiv2'
+                        }
+                    }
+
+                    // let textdiv = document.createElement('div')
+                    let text = document.createElement('p')
+                    text.className = 'addmembersearchp'
+
+                    text.textContent = user.username
+                    if(clickedmembers.includes(user.username)){
+                        text.classList.add('pikselected')
+                    }
+                    else {
+                        text.classList.remove('pikselected')
+
+                    }
+                    
+                    div.appendChild(imgdiv)
+                    div.appendChild(text)
+                    addmemberdiv3.appendChild(div)
+
+                    let clickedimg = div.querySelector('.addmembersearchimgdiv2');
+                    if (userlist.includes(user.username)){
+                        div.className = 'addmembersearchdivexist'
+                        console.log(user.username)
+                        console.log('yes')
+
+                    }
+                    else {
+                        div.className = 'addmembersearchdiv'
+
+                        if (clickedmembers.includes(user.username)){
+                            div.classList.add('clickedaddmembersearchdiv')
+                            clickedimg.classList.add('selected')
+                        }
+
+                        div.addEventListener('click', function(){
+                            console.log('clicked')
+                            div.classList.toggle('clickedaddmembersearchdiv')
+                            console.log(div.textContent)
+                            console.log(div)
+                            let pik = div.querySelector('.addmembersearchp')
+                            let addmemberdiv2 = document.getElementById('addmemberdiv2')
+                            let addmemberdiv21 = document.getElementById('addmemberdiv21')
+                            let addmemberdiv2input = document.getElementById('addmemberdiv2input')
+                            
+                            
+                            if (!clickedmembers.includes(div.textContent)){
+                                addmemberdiv21.style.display = 'none'
+                                pik.classList.add('pikselected')
+                                clickedmembers.push(div.textContent) //array add
+                                
+                                let divik = document.createElement('div')
+                                divik.className = 'addmemberdiv2divik'
+                                divik.style.opacity = '0'
+                                divik.style.transform = 'scale(0.8)'
+
+                                let imgik = document.createElement('div')
+                                imgik.className = 'addmemberdivimgik'
+                                console.log('the big bang')
+                                console.log(user.photo)
+
+                                if (user.photo !== 'nophoto'){
+                                    let img = document.createElement('img')
+                                    img.src = user.photo
+                                    img.className = 'picnik'
+                                    imgik.appendChild(img)
+                                }
+
+                                let pikk = document.createElement('p')
+                                pikk.textContent = user.username
+                                pikk.className = 'addmemberdivpikk'
+
+                                divik.appendChild(imgik)
+                                divik.appendChild(pikk)
+                                addmemberdiv2.insertBefore(divik, addmemberdiv2input)
+
+                                setTimeout(() => {
+                                    divik.style.opacity = '1'
+                                    divik.style.transform = 'scale(1)'
+                                }, 10)
+                            }
+                            
+                            else { 
+                                let index = clickedmembers.indexOf(div.textContent);
+                                clickedmembers.splice(index, 1);
+                                console.log('Removed:', div.textContent);
+                                pik.classList.remove('pikselected')
+
+                                let divikkk = addmemberdiv2.querySelectorAll('.addmemberdiv2divik')
+                                let divikfound = Array.from(divikkk).find(div => div.textContent == user.username)
+
+                                divikfound.style.transform = 'scale(0.8)'
+                                divikfound.style.opacity = '0'
+
+                                setTimeout(() => {
+                                    divikfound.remove()
+                                }, 300)
+
+                                console.log(divikfound)
+                                console.log('clicked twice')
+                            }
+
+                            //css shit
+                            if (clickedimg.classList.contains('selected')) {
+                                clickedimg.classList.add('deselecting');
+                                clickedimg.classList.remove('selected');
+                                
+                                setTimeout(() => {
+                                clickedimg.classList.remove('deselecting');
+                                }, 200);
+                            } 
+                            else {
+                                // When selecting
+                                clickedimg.classList.remove('deselecting');
+                                clickedimg.classList.add('selected');
+                            }
+                            //css shit
+
+                            console.log(clickedimg)
+                            addmemberdiv2input.value = ''
+                            addmemberdiv2input.placeholder = ''
+                            addmemberdiv2input.focus()
+
+                            console.log(clickedmembers)
+                        })
+                        
+                    }
+                })
+                
+            })
+
+            document.getElementById('addmemberdiv4add').addEventListener('click', function() {
+                console.log(`The users we want to add are -> ${clickedmembers}`)
+                console.log(clickedmembers)
+                // if (clickedmembers.length >= 2){
+                    console.log(clickedmembers.length)
+                    console.log('YES LONGER')
+                    console.log("^^^^^^^^^^^^^^^^^^UWU 1^^^^^^^^^^^^^^^^")
+                    socket.send(JSON.stringify({'clickedmembers':clickedmembers}))
+                // }
+            })
+
+
+            // document.getElementById('addmemberdiv3').addEventListener('click', function(e){
+            //     let div = e.target.closest('.addmembersearchdiv')
+            //     div.classList.add('clickedaddmembersearchdiv')
+            //     console.log('come to my senses')
+            //     console.log(div.textContent)
+            // })
+
+
+            //petq chi hyly vor
+            function newdivleft(leftie){
+                leftie.addEventListener('click', function(){
+                    console.log('here')
+                    group_id = leftie.getAttribute('data-ids')
+                    if (activechat !== null){
+                        activechat.style.display = 'none'
+                    }
+
+                    let chatdiv = document.getElementById('chat' + group_id)
+                    if (!chatdiv){
+                        chatdiv = document.createElement('div')
+                        chatdiv.id = 'chat' + group_id
+                        chatdiv.className = 'chatdiv'
+                        document.getElementById('rightside').append(chatdiv)
+                    }
+
+                    if (currentgroupid !== group_id){
+                        currentgroupid = group_id
+                        websockconnect(chatdiv, group_id, track)
+                    }
+                    chatdiv.style.display = 'inline'
+                    activechat = chatdiv
+                })
+        }
+
+            function messagedisplay (chatdiv, res, group_id) {
+                        let id = group_id
+                        let kiki = mssgcount[id]
+              
+                        if (!kiki){
+                            mssgcount[id] = 0
+                        }
+                        console.log(mssgcount)
+                        if (groupidtrack !== group_id && mssgcount[id] == 0){
+                            if (mssgcount[id] == 0){
+                                lastsender = null
+                                groupidtrack = group_id
+                            }
+                        }
+        
+                        let username = '{{userinfo.username}}'
+                        let messagebox = document.createElement('div')
+                        let isme = res.sender === username
+                        messagebox.classList.add('messagebox')
+                        messagebox.classList.add(isme ? 'right': 'left')
+
+                        let bubble = document.createElement('div')
+                        bubble.innerText = res.message
+                        bubble.classList.add(isme ? 'rightbubble':'leftbubble')
+
+                        if (res.sender != lastsender ){
+                            console.log('DONEEE???????')
+                            console.log(res.sender)
+            
+                            console.log(lastsender)
+                            let usernamebox = document.createElement('div')
+                            usernamebox.classList.add('usernamebox')
+                            usernamebox.textContent = res.sender
+                            let inga = document.createElement('img')
+                                inga.src = res.photourl
+                            let imgdiv = document.createElement('div')
+                                imgdiv.appendChild(inga)
+                                imgdiv.classList.add('imgdiv')
+                            if (isme == true){
+                                imgdiv.classList.add('profilikright')
+                            }
+                            else{
+                                imgdiv.classList.add('profilikleft')
+                            }
+                            imgdiv.addEventListener('click', function(){
+                            console.log('we good')
+                            console.log(res.sender)
+                            socket.send(JSON.stringify({'userprofile':res.sender}))
+                        })
+                            messagebox.appendChild(imgdiv)
+                            bubble.insertBefore(usernamebox, bubble.firstChild)
+                            mssgcount[id] = 0
+                            lastsender = res.sender
+                        }
+
+                        else {
+                            mssgcount[id] += 1
+                        }
+                        messagebox.appendChild(bubble)
+                        chatdiv.appendChild(messagebox)
+                        chatdiv.scrollTop = chatdiv.scrollHeight;  
+                    }
+
+        // document.querySelectorAll('.imgdiv').forEach(div => {
+        //     div.addEventListener('click', function() {
+        //         console.log('shakira')
+        //         let user = div.getAttribute('data_imguser')
+        //         console.log(user)
+        //     })
+        // })
+        
+        // GORC CHUNEM ________________________________
+        document.getElementById('rightbutton').addEventListener('click', function(){
+            let textfield = document.getElementById('rightinput')
+            textfield.style.height = '20px';
+            let text = textfield.value
+            let user = '{{userinfo.username}}'
+
+            console.log('pipi')
+            let divtyping = document.getElementById('divtyping')
+            divtyping.textContent = ''
+            console.log(text)
+            let profileurl = '{{userinfo.photo.url}}'
+            console.log(profileurl)
+
+            if (text){
+                let sender = '{{userinfo.username}}'
+                let info = JSON.parse("{{groupinfo|safe|escapejs}}".replace(/'/g, '"'))
+                console.log("INFO")
+                console.log(currentgroupid)
+                console.log(info)
+
+
+                console.log('GRPEEEL')
+                                    console.log(grpel)
+                if (grpel == ''){
+                    let group = info.find(i => i.groupid == currentgroupid)
+
+                    grpel = group.groupname
+                }
+                
+                // console.log(group.group name)
+                console.log('INFO RECEIVED')
+                console.log(info)
+                socket.send(JSON.stringify({'notypinguser':user}))
+                socket.send(JSON.stringify({'text':text, 'sender':sender, 'profileurl':profileurl, 'id':currentgroupid, 'groupname':grpel }))
+            
+                console.log('uff chgitem')
+                textfield.value = ''
+                textfield.style.height = '20px';
+            }
+            if (image){
+                let reader = new FileReader
+                console.log('riri')
+                reader.onload = function(){
+                    console.log('here image')
+                    socket.send(JSON.stringify({
+                        type : 'image',
+                        image: reader.result
+                    }))
+                    imagefield.value = ''
+                }
+                reader.readAsDataURL(image)
+            }
+        })
+
+
+        document.getElementById('rightinput').addEventListener('input', function(){
+            let user = '{{userinfo.username}}'
+            let txt = document.getElementById('rightinput').value
+            
+            if (txt.length > 0){
+                socket.send(JSON.stringify({'typinguser':user}))
+            }
+            else {
+                socket.send(JSON.stringify({'notypinguser':user}))
+            }
+        })
+
+        // changein user info right here &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+        // document.getElementById('profileimagebutton').addEventListener('click', function(){
+        //     let profilepicform = document.getElementById('profileimageform')
+        //     let formdata = new FormData(profilepicform)
+        //     const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        //     formdata.append('csrfmiddlewaretoken', csrfToken);
+
+        //     fetch('/profilepicimg/', {
+        //         method:'POST',
+        //         body:formdata,
+        //     })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         res=document.getElementById('profilepic')
+        //         res.src = data.url
+        //     })
+        //     smalldivpic.style.display = 'none'  
+        //     doubledarkendiv.style.display = 'none'
+        // })
+        
+        document.getElementById('profileimageinput').addEventListener('change', function(){
+            let inp = document.getElementById('profileimageinput')
+            let file = inp.files[0]
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+            
+            let formdata = new FormData
+            formdata.append('csrfmiddlewaretoken', csrfToken);
+            formdata.append('photo', file)
+
+            fetch('/profilepicimg/', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken':csrfToken
+                },
+                body: formdata
+            })
+            .then(response => response.json())
+            .then(data => {
+                let img = document.getElementById('centerdiv21photo')
+                let profilepic = document.getElementById('profilepic')
+                console.log(img)
+                img.src = data.url
+                profilepic.src = data.url
+                newurl = data.url
+                console.log(data.url)
+            })
+        })
+
+        document.getElementById('usernameinputbutton').addEventListener('click', function() {
+            res = document.getElementById('usernameinput').value
+            let formdata = new FormData
+            formdata.append('username', res)
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+            formdata.append('csrfmiddlewaretoken', csrfToken);
+
+            fetch('/usernamenew/', {
+                method:'POST',
+                body: formdata
+            })
+            .then(response => response.json())
+            .then(data => {
+                res = document.getElementById('usernamemain')
+                res.innerText = data.username
+                document.getElementById('centerdiv22p').textContent = data.username
+                document.getElementById('centerdiv42').textContent = data.username
+                newusername = data.username
+            })
+            console.log('lalala')
+            console.log('{{userinfo.username}}')
+            smalldivusername.style.display = 'none'
+            doubledarkendiv.style.display = 'none'
+        })
+
+        document.getElementById('nameinputbutton').addEventListener('click', function(){
+            let name = document.getElementById('nameinput').value
+            let p = document.getElementById('centerdiv32')
+            let formdata = new FormData
+            formdata.append('name', name)
+
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+            formdata.append('csrfmiddlewaretoken', csrfToken);
+
+            fetch('/name/', {
+                method: 'POST',
+                body: formdata
+            })
+            .then(response => response.json())
+            .then(data => {
+                name = data.name
+                newname = name
+                p.textContent = newname
+                console.log(data.name)
+                newname = data.name
+            })
+
+            doubledarkendiv.style.display = 'none'
+            smalldivname.style.display = 'none'
+        })
+
+        // document.getElementById('bioinputbutton').addEventListener('click', function(){
+        //     res = document.getElementById('bionput').value
+        //     const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        //     let formdata = new FormData
+        //     formdata.append('bio', res)
+        //     formdata.append('csrfmiddlewaretoken', csrfToken);
+        //     fetch('/usernamenew/', {
+        //         method:'POST',
+        //         body:formdata,
+        //     })
+            
+        //     smalldivbio.style.display = 'none'
+        //     doubledarkendiv.style.display = 'none'
+        // })
+
+        document.getElementById('closecenterdiv').addEventListener('click', function(){
+
+            let input = document.getElementById('centerdivbioinp').value
+            if (input != '{{userinfo.bio}}'){
+                console.log('>><<;;')
+                if (input.length <= 70){
+
+                    let formdata = new FormData
+                    const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+                    formdata.append('bio', input)
+                    formdata.append('csrfmiddlewaretoken', csrfToken);
+
+                    fetch('/bionew/', {
+                        method : 'POST',
+                        body :formdata
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        let centerdivbioinp = document.getElementById('centerdivbioinp')
+                        bio = data.bio
+                        console.log('{{userinfo.bio}}')
+                        currentbio = data.bio
+                        centerdivbioinp.value = currentbio
+                        console.log('kpav')
+                    })
+                }
+                else {
+
+                    document.getElementById('centerdivbioinp').value = currentbio
+                    console.log('chkpav inputy normic erkara')
+                }
+            }
+            else{
+                console.log('chkpav 1')
+            }
+        })
+
+        // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+        let box = document.getElementById('divcreatenewgroup')
+        let creategroupbutton = document.getElementById('createnewgroup')
+        let darkdivcreate = document.getElementById('darkdivcreate')
+
+        let usernamehold = document.getElementById('usernamehold')
+        let centerdiv = document.getElementById('centerdiv') //modal
+
+        let darkendiv = document.getElementById('darkendiv') //modaloverlay
+        let doubledarkendiv = document.getElementById('doubledarkendiv')
+        let closebutton = document.getElementById('closecenterdiv')
+
+        let profilepicchangeopen = document.getElementById('profilepicchangeopen')
+        let usernamechangeopen = document.getElementById('usernamechangeopen')
+        // let biochangeopen = document.getElementById('biochangeopen')
+
+        let smalldivpic = document.getElementById('smalldivpic')
+        let smalldivusername = document.getElementById('smalldivusername')
+        let smalldivname = document.getElementById('smalldivname')
+        let smalldivbio = document.getElementById('smalldivbio')
+
+        let groupdiv = document.getElementById('groupdiv')
+
+        let crossbg = document.getElementById('chatbackgrounddiv1cross')
+        let chatbackgrounddiv = document.getElementById('chatbackgrounddiv')
+
+        let addmemberdiv = document.getElementById('addmemberdiv')
+        let addmemberdiv4cancel = document.getElementById('addmemberdiv4cancel')
+
+        addmemberdiv4cancel.addEventListener('click', function(){
+            darkdivcreate.style.display = 'none'
+            addmemberdiv.style.display = 'none'
+            let addmemberdiv2divik = document.querySelectorAll('.addmemberdiv2divik')
+            let addmembersearchdiv = document.querySelectorAll('.addmembersearchdiv')
+            addmemberdiv2divik.forEach(div => {
+                div.remove()
+            })
+            addmembersearchdiv.forEach(div => {
+                div.remove()
+            })
+            clickedmembers = []
+        })
+
+        crossbg.addEventListener('click', function(){
+            chatbackgrounddiv.style.display = 'none'
+            darkdivcreate.style.display = 'none'
+        })
+
+        creategroupbutton.addEventListener('click', function(){
+            darkdivcreate.style.display = 'block'
+            box.style.display = 'flex'
+        })
+
+        darkdivcreate.addEventListener('click', function(){
+            box.style.display = 'none'
+            console.log('darkened')
+            darkdivcreate.style.display = 'none'
+            if (!(activechat == null && currentgroupid == null)){
+            websockconnect(activechat, currentgroupid, track)
+            }
+            groupdiv.style.display = 'none'
+            addmemberdiv.style.display = 'none'
+        })
+
+        usernamehold.addEventListener('click', function (){
+                    console.log('CURRENTBIO')
+                    console.log(currentbio)
+                    let centerdiv21 = document.getElementById('centerdiv21')
+                    let centerdiv22 = document.getElementById('centerdiv22')
+                    let centerdiv3 = document.getElementById('centerdiv3')
+                    let centerdiv4 = document.getElementById('centerdiv4')
+                    let centerdiv32 = document.getElementById('centerdiv32')
+                    let centerdiv42 = document.getElementById('centerdiv42')
+                    let centerdiv22p = document.getElementById('centerdiv22p')
+                    let centerdiv20pic = document.getElementById('centerdiv20pic')
+                    
+                    let centerdivbio01 = document.getElementById('centerdivbio01')
+                    let centerdivbioinp = document.getElementById('centerdivbioinp')
+                    let profileimageinput = document.getElementById('profileimageinput')
+
+                    
+                    
+                    let username = '{{userinfo.username}}'
+                    let bio = '{{userinfo.bio}}'
+                    
+                    let remaining = 0
+                    let len = 0
+
+                    let dp = document.getElementById('centerdivbio01p')
+
+                    
+                    console.log('our bio audience')  // es pahy hyly nayel 
+                    // if (currentbio != bio){
+                    //    currentbio = bio 
+                    // }
+                    if (oldbio == ''){
+                                            oldbio = bio
+                                        }
+                    if (currentbio == ''){
+                        len = 70 - bio.length          
+                        console.log('CURRENTBIO1')
+                        console.log(currentbio)
+                        centerdivbioinp.value = bio
+                    }
+                    else {
+                        len = 70 - currentbio.length          
+                        console.log('CURRENTBIO2')
+                        console.log(currentbio)
+                        // centerdivbioinp.textContent = 'arev'
+                    }
+                    
+                    dp.textContent = len
+                    dp.className = 'blackdp'
+                    
+                    centerdivbioinp.addEventListener('input', function(){
+                        console.log('happy pipipi')
+                        
+                        len = centerdivbioinp.value.length
+                        remaining = 70 - len 
+                        dp.textContent = remaining
+                        console.log(len)
+
+                        if (remaining >= 0){
+                            console.log('black')
+                            dp.className = 'blackdp'
+                        }
+                        else {
+                            console.log('redd')
+                            dp.className = 'reddp'
+                        }
+                    })
+
+                    let url = '{{userinfo.photo.url}}'
+                    let pusername = '{{userinfo.username}}'
+                    let pname = '{{userinfo.name}}'
+
+                    centerdiv32.textContent = pname
+                    centerdiv42.textContent = pusername
+
+                    if (opened == false){
+                        let img = document.createElement('img')
+                        img.src = url
+                        img.id = 'centerdiv21photo'
+                        centerdiv21.appendChild(img)
+                        opened = true
+                    }
+                    
+                    centerdiv22p.textContent = username
+                      
+                centerdiv.style.display = 'flex'
+                darkendiv.style.display = 'block'
+                doubledarkendiv.style.display = 'none'
+        })
+
+        closebutton.addEventListener('click', function(){
+            centerdiv.style.display = 'none'
+            darkendiv.style.display = 'none'
+            doubledarkendiv.style.display = 'none'
+        })
+
+        darkendiv.addEventListener('click', function(){
+            centerdiv.style.display = 'none'
+            darkendiv.style.display = 'none'
+            doubledarkendiv.style.display = 'none'
+            smalldivusername.style.display = 'none'
+            smalldivbio.style.display = 'none'
+
+        })
+
+        doubledarkendiv.addEventListener('click', function(){
+             smalldivpic.style.display = 'none'
+             smalldivusername.style.display = 'none'
+             smalldivname.style.display = 'none'
+             smalldivbio.style.display = 'none'
+             doubledarkendiv.style.display = 'none'
+        })
+        centerdiv20pic.addEventListener('click', function(){
+            profileimageinput.click()
+            // doubledarkendiv.style.display = 'block'
+             // centerdiv.style.display = 'block'
+        })
+
+        centerdiv3.addEventListener('click', function(){
+            doubledarkendiv.style.display = 'block'
+            smalldivname.style.display = 'flex'
+        })
+
+        centerdiv4.addEventListener('click', function(){
+            smalldivusername.style.display = 'block'
+            doubledarkendiv.style.display = 'block'
+            console.log('centerdiv3 clicked')
+        })
+        
+        // biochangeopen.addEventListener('click', function(){
+        //     doubledarkendiv.style.display = 'block'
+        //     smalldivbio.style.display = 'block'
+        // })
+
+        </script>
+    </body>
+</html>
+
+<!-- // // console.log(res.message)
+// if (res.oldmessage){
+// res.oldmessage.forEach(i => {
+//     let txt = document.createElement('p')
+//     txt.append(i.sender)
+//     txt.append(i.message)
+//     chatdiv.appendChild(txt)
+// })}
+// else if (res.newmessage){
+//     chatdiv.append(res.newmessage)
+// } -->

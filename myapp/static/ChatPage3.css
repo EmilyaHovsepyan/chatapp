@@ -1,0 +1,511 @@
+#groupdiv {
+    display: none;
+    flex-direction: column;
+     position: fixed;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     background-color: rgb(84, 142, 140);
+     z-index: 150;
+     width: 300px;
+     height: auto;
+     text-align: center;
+     border-radius: 10px;
+ }
+
+#groupstatic {
+    display: flex;
+    justify-content: space-between; /* This pushes children to opposite ends */
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    background-color: rgb(255,255,255);
+    margin: 0;
+    border-radius: 8px 8px 0px 0px;
+}
+#groupstaticp {
+    color: rgb(34,34,34);
+    margin-left: 17px;
+    font-size: 17px;
+    font-family: sans-serif;
+    cursor: default;
+}
+#groupstaticcross {
+    margin-right: 17px;
+    height: 17px;
+    width: 17px;
+    cursor: pointer;
+}
+
+ #groupscroll {
+    width: 100%;
+    flex: 1;
+    background-color: rgb(255,255,255);
+    overflow-y: auto;
+    border-radius: 0px 0px 8px 8px;
+ }
+
+ #scrollgroupinfobar {
+    height: 80px;
+    background-color: rgb(255,255,255);
+    display: flex;
+    flex-direction: row;    
+    align-items: center;
+    justify-content: start;
+    margin: 0;
+ }
+
+ #scrollgroupimg {
+    height: 60px;
+    width: 60px;
+    background-color: brown;
+    border-radius: 50%;
+    margin-left: 17px;
+ }
+#scrollgroupimg img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   border-radius: 50%;
+}
+
+#groupscrollgroupname {
+    display: flex;
+    width: auto;
+    height: 20px;
+    margin: 0px;
+    align-items: flex-start;
+ }
+#groupscrollgroupnamep  {
+    color: rgb(34,34,34);
+    font-size: 20px;
+    margin: 0px;
+}
+
+#groupscrollmembercount {
+    width:auto;
+    height: 20px;
+    margin-top: 3px;
+ }
+#groupscrollmembercountp {
+    color: rgb(136, 136, 136);
+    font-size: 14px;
+    margin: 0px;
+}
+#scrollgroupwrap {
+    /* background-color: darkcyan; */
+    margin-left: 20px;
+    flex-direction: column;
+ }
+
+#scrollnotificationswrap {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(255,255,255);
+  border-top: 10px solid rgb(232,232,232);
+  border-bottom: 10px solid rgb(232,232,232);
+}
+#scrollnotifications {
+  background-color: rgb(255,255,255);
+  width: 100%;
+  height: 35px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+ }
+#scrollnotifications:hover{
+  background-color: rgb(232,232,232);
+}
+
+#scrollnotificationsp {
+  color: rgb(34,34,34);
+  font-size: 13px;
+  font-family: sans-serif;
+  margin-left: 17px;
+}
+
+#mijancq {
+  background-color: rgb(255,255,255);
+  height: 7px;
+  width: 100%;
+}
+
+.scrollik {
+   background-color: rgb(255,255,255);
+   width: 100%;
+   height: 40px;
+   cursor: pointer;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+ }
+
+.scrollik:hover {
+   background-color: rgb(232,232,232);
+ }
+
+.scrollp {
+  color: rgb(34,34,34);
+  margin-left: 17px;
+  font-family: sans-serif;
+  font-size: 13px;
+}
+
+/* member div   add member divy*/
+
+#members {
+  background-color: rgb(255,255,255);
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border-top: 5px solid rgb(232,232,232);
+}
+#membersmembers {
+  height: 22px;
+  width: 22px;
+  margin-left: 15px;
+}
+#memebersp {
+  color: rgb(34,34,34);
+  font-size: 13px;
+  font-family: sans-serif;
+  margin-left: 3px;
+}
+#membersaddmembers {
+  height: 22px;
+  width: 22px;
+  margin-left: 165px;
+  cursor: pointer;
+}
+/* member div*/
+
+
+.scrollmember {
+    background-color: rgb(255,255,255);
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;    
+    align-items: center;
+    justify-content: start;
+    margin: 0;
+ }
+
+.scrollmember:hover {
+    background-color: rgb(232,232,232);
+ }
+
+.scrollimgdiv {
+    width: 30px;
+    height: 30px;
+    background-color: brown;
+    border-radius: 50%;
+    margin-left: 15px;
+ }
+.scrollimgdiv img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+ }
+.scrolltextdiv {
+    color: rgb(34,34,34);
+    font-size: 13px;
+    font-family: sans-serif;
+    margin-left: 3px;
+}
+#mijancq2 {
+    background-color: rgb(255,255,255);
+    border-radius: 0px 0px 8px 8px;
+    width: 100%;
+    height: 8px;
+}
+
+ #scrollchangename {
+   background-color: indianred;
+   width: 100%;
+   height: 40px;
+   cursor: pointer;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+   /* padding: 0 10px; */
+ }
+ #changenametxt {
+   background-color: bisque;
+   height: 25px;
+   display: flex;
+   align-items: center;
+   /* padding: 0 10px; */
+ }
+ #changenametxt p {
+   margin: 0;
+   pointer-events: none; /* чтоб не блокировал клик */
+ }
+ #changenamebutton {
+   height: 25px;
+  background-color: #000000;
+  color: white;
+  /* border: 1px solid black; */
+  border-radius: 10px;
+  /* padding: 0 10px; */
+  /* font-size: 14px; */
+ }
+
+ #changenamesmall {
+    display: none;
+    flex-direction: column;
+     position: fixed;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     background-color: rgb(84, 142, 140);
+     z-index: 150;
+     width: 370px;
+     height: 220px;
+     text-align: center;
+     border-radius: 10px;
+ }
+
+ #scrolluserinfo {
+  display: none;
+    flex-direction: column;
+     position: fixed;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     background-color: rgb(84, 92, 142);
+     z-index: 153;
+     width: 370px;
+     height: 280px;
+     text-align: center;
+     border-radius: 10px;
+ }
+
+#scrolluserinfotop {
+  position: static;
+  display: flex;
+  top: 0px;
+  width: 100%;
+  height: 40px;
+  background-color: rgb(183, 146, 146);
+}
+
+#scrolluserinfo2 {
+    background-color: rgb(199, 198, 198);
+    height: 80px;
+    width: 100%;
+    display: flex;          /* Enable flexbox */
+    align-items: center;    /* Center vertically */
+    /* padding-left: 10px; */
+}
+
+#scrolluserinfo2photo {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background-color: chocolate;
+}
+
+/* #darkdivcreate2 {
+  position: fixed;
+  top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+  /* width: 100vw;
+  height: 100vh; */
+  /* background-color: rgba(0, 2, 0, 0.472);
+  width: 300px;
+     height: 600px;
+  display: none;
+  z-index: 151;
+    border-radius: 10px; */
+
+#darkdivcreate2 {
+position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 2, 0, 0.472);
+  display: none;
+  z-index: 151;
+}
+
+#hide2 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(72, 74, 72, 0);
+  width: 300px;
+  height: 600px;
+  display: none;
+  z-index: 152;
+  border-radius: 10px;
+}
+
+.imgscroll {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#scrolluserinfo2wrap {
+  display: flex; 
+  margin-left: 15px;
+  flex-direction: column;
+  /* background-color: blue; */
+  width: auto;
+  height: 50px;
+}
+
+#scroll2username {
+  display: flex;
+  width: auto;
+  height: 25px;
+  /* background-color: deeppink; */
+  align-items: center;       /* центр по вертикали */
+  justify-content: flex-start;
+}
+
+#scroll2online {
+  width: auto;
+  height: 25px;
+  /* background-color: rgb(86, 35, 62); */
+}
+
+#scrolluserinfo3 {
+  background-color: rgb(149, 149, 149);
+    height: 60px;
+    width: 100%;
+    display: flex;          /* Enable flexbox */
+    flex-direction: column;
+}
+
+#scrolluserinfo3username {
+  position: relative;
+  height: 30px;
+  width: auto;
+  /* background-color: cadetblue; */
+}
+
+#scrolluserinfo3username1 {
+ position: relative;
+  height: 30px;
+  width: auto;
+  /* background-color: rgb(57, 87, 88); */
+}
+
+#scrolluserinfo3username p {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  margin: 0;
+  padding-left: 8px; 
+}
+
+#scrolluserinfo3username1 p {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  margin: 0;
+  padding-left: 8px; 
+}
+
+#scrolluserinfo3bio1copy {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: blueviolet;
+}
+
+#scrolluserinfo3username div {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  margin: 0;
+  cursor: pointer;
+  /* padding-right: 8px;  */
+}
+
+#scrolluserinfo4 {
+  background-color: rgb(149, 149, 149);
+    height: 60px;
+    width: 100%;
+    display: none;          /* Enable flexbox */
+    flex-direction: column;
+}
+
+#scrolluserinfo4bio {
+  position: relative;
+  height: 30px;
+  width: auto;
+  /* background-color: cadetblue; */
+}
+
+#scrolluserinfo4bio1 {
+  position: relative;
+  height: 30px;
+  width: auto;
+  /* background-color: rgb(57, 87, 88); */
+}
+#scrolluserinfo4bio p{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  margin: 0;
+  padding-left: 8px; 
+}
+
+#scrolluserinfo4bio1 p{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  margin: 0;
+  padding-left: 8px; 
+}
+
+#notifdiv {
+  position: absolute;
+  top: -100px;
+  align-self: center;
+  left: 50%;
+  transform: translateX(-50%);
+  /* transform: translateY(-20%); */
+  background-color: #3e5ab5;
+  color: white;
+  /* padding: 10px 20px; */
+  width: calc(100% - 30px);
+  min-height: 50px;
+  border-radius: 5px;
+  text-align: start;
+  transition: top 0.5s ease-in-out;
+  z-index: 9999;
+  font-family: sans-serif;
+}
+
+#notifgroupname {
+  /* background-color: #855838; */
+  height: 25px;
+  width: auto;
+  text-align: start;
+  color: white;
+}
+
+#notiftext {
+  /* background-color: grey; */
+  height: 25px;
+  width: auto;
+  border-radius: 5px;
+}

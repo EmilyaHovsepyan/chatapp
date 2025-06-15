@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    background: #e2b8da;
+    font-family: sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.welcome {
+    margin-top: 0;
+    font-size: 2em;
+    opacity: 0;
+    transform: translateY(-500px);
+    animation: dropIn 3s forwards, fadeOutScale 2s 3s forwards;
+    color: rgb(117, 0, 62);
+}
+
+.formfont {
+    color: rgb(117, 0, 62);
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+@keyframes dropIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutScale {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+        display: none;
+    }
+}
+
+.form {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 1s ease;
+    position: absolute;
+    text-align: center;
+}
+
+.form.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+form input {
+    padding: 10px;
+    font-size: 1em;
+    width: 200px;
+    margin: 5px 0;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    padding: 10px 20px;
+    font-size: 1em;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: rgb(117, 0, 62);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: rgb(150, 0, 80);
+}

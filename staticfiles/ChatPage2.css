@@ -1,0 +1,85 @@
+.chatdiv {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 5px;
+    overflow-y: auto;
+    height: 500px; /* или сколько нужно */
+  }
+  
+  /* Общий контейнер одного сообщения */
+  .messagebox {
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+    margin-bottom: 5px;
+  }
+  
+  /* Сообщение пользователя — справа */
+  .messagebox.right {
+    align-self: flex-end;
+    margin-left: auto;
+    margin-right: 10px;
+  }
+  
+  /* Сообщение другого человека — слева */
+  .messagebox.left {
+    align-self: flex-start;
+    margin-right: auto;
+    margin-left: 10px;
+  }
+  
+  /* Стиль пузыря для твоих сообщений */
+  .rightbubble {
+    background-color: #DCF8C6; /* WhatsApp-style green */
+    color: black;
+    padding: 10px 15px;
+    border-radius: 16px;
+    max-width: 60%; /* Ограничивает максимальную ширину */
+    width: fit-content; /* Заставляет подстраиваться под содержимое */
+    word-wrap: break-word; /* Перенос слов, если слишком длинные */
+    margin-left: auto; /* Сдвигает вправо */
+    margin-top: 4px;
+}
+  /* Стиль пузыря для чужих сообщений */
+  .leftbubble {
+    background-color: #1e69aa; /* WhatsApp-style green */
+    color: black;
+    padding: 10px 15px;
+    border-radius: 16px;
+    max-width: 60%; /* Ограничивает максимальную ширину */
+    width: fit-content; /* Заставляет подстраиваться под содержимое */
+    word-wrap: break-word; /* Перенос слов, если слишком длинные */
+    margin-right: auto; /* Сдвигает вправо */
+    margin-top: 4px;
+  }
+  
+  .usernamebox {
+    font-size: 12px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  #rightside {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(207, 210, 203);
+    padding: 0;
+
+  }
+
+
+#divcreatenewgroup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(19, 91, 53);
+    z-index: 101;
+    width: 300px;
+    height: 600px;
+    text-align: center;
+    border-radius: 10px;
+}

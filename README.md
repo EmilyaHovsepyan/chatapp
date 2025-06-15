@@ -1,24 +1,47 @@
-ChatApp 🚀
+# ChatApp 🚀
 
+![42 Project](https://img.shields.io/badge/42%20School-Project-blue) 
+![Backend](https://img.shields.io/badge/backend-Django-informational)
+![Frontend](https://img.shields.io/badge/frontend-HTML%2FCSS%2FJS-important)
+![Protocols](https://img.shields.io/badge/protocols-WebSocket%2FHTTP-success)
+![Status](https://img.shields.io/badge/status-Active_Development-orange)
 
+> Full-stack real-time messenger combining WebSockets, AJAX, and HTTP for fluid communication.  
+> Features modern UI animations, group administration, and cross-tab notifications - developed with Django Channels.
 
+---
 
+## 🌌 Project Overview
 
+**ChatApp** reimagines real-time communication with:
+- Instant WebSocket-powered messaging
+- Hybrid HTTP/AJAX for seamless UI updates
+- Responsive design with CSS animations
+- Modular architecture following best practices
 
-ChatApp is a full‑stack real‑time messenger that combines the power of WebSockets, AJAX, and classic HTTP to deliver a fluid chatting experience. Register, connect, and start chatting in seconds—whether one‑to‑one or in groups—while enjoying slick animations, user‑defined themes, and instant notifications. The project is currently in active development and welcomes feedback & contributions.
+Built as a portfolio showcase with production-grade features while maintaining educational clarity.
 
-✨ Key Features
+---
 
-Secure Authentication• Register / Sign‑in / Sign‑out• Password reset and profile security
+## ✨ Feature Matrix
 
-User & Profile Management• View & edit username, full name, bio, profile picture• Search users and add contacts
+| Category              | Features                                                                 |
+|-----------------------|--------------------------------------------------------------------------|
+| **Authentication**    | Secure registration • Password reset • Session management                |
+| **Real-Time Core**    | WebSocket messaging • Typing indicators • Read receipts                  |
+| **Media Handling**    | Inline image uploads • Profile pictures • Group icons                   |
+| **Social Features**   | User search • Contact lists • Group administration                      |
+| **Customization**     | Per-chat themes • Notification preferences • Accessibility controls     |
+| **Infrastructure**    | Django Channels • ASGI • PostgreSQL • Redis (message broker)            |
 
-Real‑Time Chat• 1‑to‑1 conversations and group chats• Live message delivery over WebSockets (Django Channels)• Inline image upload & preview
+---
 
-Group Administration• Create groups, rename, change icon• Add / remove members, assign moderators
+## 🛠️ Technical Implementation
 
-Customizable Themes• Per‑chat background & color schemes• Smooth CSS transitions & animations
-
-Instant Notifications• Unread badges & top‑bar alerts across tabs• Sound cues (optional)
-
-Responsive UI• Mobile‑first layout• Keyboard shortcuts & accessibility landmarks
+### Core Stack
+```mermaid
+graph TD
+    A[Frontend] -->|AJAX| B[Django Views]
+    A -->|WebSocket| C[Django Channels]
+    C --> D[Redis]
+    B --> E[PostgreSQL]
